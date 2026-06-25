@@ -1,80 +1,45 @@
 <template>
   <div class="bg-[#F5F5F7] min-h-screen text-slate-900 selection:bg-blue-200">
     <!-- Hero -->
-    <section class="relative h-screen min-h-[800px] w-full flex items-center justify-center overflow-hidden bg-[#020617]">
+    <section
+      class="relative h-screen min-h-[800px] w-full flex items-center justify-center overflow-hidden bg-[#020617]">
       <!-- Background Elements -->
       <div class="absolute inset-0 z-0">
         <!-- High-tech Node/Network Image -->
-        <img
-          src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2500&q=80"
+        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2500&q=80"
           alt="Smart Procurement Network"
-          class="w-full h-full object-cover object-center opacity-40 mix-blend-screen scale-105 animate-[pulse_20s_ease-in-out_infinite_alternate]"
-        />
+          class="w-full h-full object-cover object-center opacity-40 mix-blend-screen scale-105" />
         <!-- Gradient Overlays -->
         <div class="absolute inset-0 bg-gradient-to-b from-[#020617]/80 via-[#0f172a]/70 to-[#020617]"></div>
-        
+
         <!-- Glowing Orbs for Tech Feel -->
-        <div class="absolute top-1/4 left-1/4 w-[40rem] h-[40rem] bg-blue-600/20 rounded-full blur-[120px] animate-pulse"></div>
-        <div class="absolute bottom-1/4 right-1/4 w-[40rem] h-[40rem] bg-indigo-600/20 rounded-full blur-[120px] animate-pulse" style="animation-delay: 2s;"></div>
-        
+        <div class="absolute top-1/4 left-1/4 w-[40rem] h-[40rem] bg-blue-600/20 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[40rem] h-[40rem] bg-indigo-600/20 rounded-full blur-[120px]"></div>
+
         <!-- Grid Pattern -->
-        <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+        <div
+          class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)]">
+        </div>
       </div>
 
-      <div class="relative z-10 max-w-6xl mx-auto px-6 text-center mt-16">
-        <!-- Badge -->
-        <div 
-          v-motion
-          :initial="{ opacity: 0, y: 20 }"
-          :enter="{ opacity: 1, y: 0, transition: { duration: 800, ease: [0.16, 1, 0.3, 1] } }"
-          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8 shadow-lg"
-        >
-          <span class="relative flex h-2.5 w-2.5">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500"></span>
-          </span>
-          <span class="text-sm font-medium text-blue-200 tracking-wider">AI-POWERED PROCUREMENT</span>
-        </div>
-
-        <h1
-          v-motion
-          :initial="{ opacity: 0, y: 30 }"
+      <div class="relative z-10 max-w-6xl mx-auto px-6 text-center -mt-20">
+        <h1 v-motion :initial="{ opacity: 0, y: 30 }"
           :enter="{ opacity: 1, y: 0, transition: { duration: 800, delay: 100, ease: [0.16, 1, 0.3, 1] } }"
-          class="text-5xl md:text-7xl lg:text-[6.5rem] font-bold tracking-tight text-white leading-[1.1] mb-8"
-        >
-          寻源全球，<br class="md:hidden" />
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-emerald-300 drop-shadow-lg">
-            决策先人一步
-          </span>
+          class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.1] mb-8">
+          全球寻源，精准匹配
         </h1>
 
-        <p
-          v-motion
-          :initial="{ opacity: 0, y: 30 }"
+        <p v-motion :initial="{ opacity: 0, y: 30 }"
           :enter="{ opacity: 1, y: 0, transition: { duration: 800, delay: 200, ease: [0.16, 1, 0.3, 1] } }"
-          class="text-xl md:text-2xl text-slate-300 font-light max-w-3xl mx-auto leading-relaxed mb-12"
-        >
-          基于大模型构建全球供应商知识图谱与动态定价中枢。<br class="hidden md:block" />打破信息孤岛，实现从需求到交付的全链路智能决策。
+          class="text-xl md:text-2xl text-slate-300 font-light max-w-3xl mx-auto leading-relaxed mb-12">
+          AI 驱动的全球寻源与智能决策，让每一次采购都先人一步。
         </p>
-
-        <!-- CTA Buttons -->
-        <div 
-          v-motion
-          :initial="{ opacity: 0, y: 30 }"
-          :enter="{ opacity: 1, y: 0, transition: { duration: 800, delay: 300, ease: [0.16, 1, 0.3, 1] } }"
-          class="flex flex-col sm:flex-row items-center justify-center gap-6"
-        >
-          <button class="w-full sm:w-auto px-8 py-4 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-500 transition-all shadow-[0_0_30px_rgba(37,99,235,0.3)] hover:shadow-[0_0_50px_rgba(37,99,235,0.5)] text-lg hover:-translate-y-1 duration-300">
-            开启智能寻源
-          </button>
-          <button class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 backdrop-blur-md transition-all text-lg hover:-translate-y-1 duration-300 flex items-center justify-center gap-2">
-            预约产品演示
-          </button>
-        </div>
       </div>
-      
+
       <!-- Decorative Bottom Transition -->
-      <div class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#F5F5F7] to-transparent z-10 pointer-events-none"></div>
+      <div
+        class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#F5F5F7] to-transparent z-10 pointer-events-none">
+      </div>
     </section>
 
     <!-- Content -->
@@ -83,55 +48,54 @@
       <!-- Pipeline -->
       <section class="w-[85%] mx-auto px-6 lg:px-8 mb-40">
         <div class="text-center mb-24">
-          <div class="text-4xl md:text-6xl font-bold tracking-widest text-slate-200 mb-6 uppercase">DECISION MATRIX</div>
+          <div class="text-4xl md:text-6xl font-bold tracking-widest text-slate-200 mb-6 uppercase">DECISION MATRIX
+          </div>
           <h2 class="text-2xl md:text-3xl font-medium text-slate-500">全链路智能决策矩阵</h2>
         </div>
 
         <div class="space-y-24 md:space-y-32 mt-12">
-          <div
-            v-for="(stage, index) in pipelineStages"
-            :key="stage.id"
-            v-motion
-            :initial="{ opacity: 0, y: 50 }"
-            :visible="{ opacity: 1, y: 0, transition: { duration: 1000, ease: [0.16, 1, 0.3, 1] } }"
-            :visible-once="true"
-            :class="['group relative flex flex-col items-center', index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row']"
-          >
+          <div v-for="(stage, index) in pipelineStages" :key="stage.id" data-reveal
+            :style="{ transitionDelay: index * 80 + 'ms' }"
+            :class="['group relative flex flex-col items-center reveal-item', index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row']">
             <!-- Image Section (Larger, edge-to-edge feel) -->
-            <div class="w-full md:w-2/3 relative h-[400px] md:h-[560px] rounded-[3rem] overflow-hidden shadow-2xl shadow-slate-200/50 z-0">
-              <img
-                :src="stage.image"
-                :alt="stage.title"
-                class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]"
-              />
-              <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-700"></div>
+            <div
+              class="w-full md:w-2/3 relative h-[400px] md:h-[560px] rounded-[3rem] overflow-hidden shadow-2xl shadow-slate-200/50 z-0">
+              <img :src="stage.image" :alt="stage.title"
+                class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+              <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors duration-700">
+              </div>
             </div>
 
             <!-- Text Card Section (Overlapping Glassmorphism) -->
-            <div 
-              :class="['w-[90%] md:w-[45%] relative z-10 -mt-20 md:mt-0 bg-white/85 backdrop-blur-2xl rounded-[2.5rem] p-8 md:p-12 shadow-[0_30px_60px_rgba(0,0,0,0.08)] border border-white hover:bg-white transition-colors duration-500', index % 2 === 1 ? 'md:-mr-24' : 'md:-ml-24']"
-            >
+            <div
+              :class="['w-[90%] md:w-[45%] relative z-10 -mt-20 md:mt-0 bg-white/85 backdrop-blur-2xl rounded-[2.5rem] p-8 md:p-12 shadow-[0_30px_60px_rgba(0,0,0,0.08)] border border-white hover:bg-white transition-colors duration-500', index % 2 === 1 ? 'md:-mr-24' : 'md:-ml-24']">
               <!-- Giant Watermark Number -->
-              <div class="absolute top-0 right-6 -mt-8 text-[8rem] font-black text-slate-50 select-none pointer-events-none z-0 group-hover:text-blue-50 transition-colors duration-500">
+              <div
+                class="absolute top-0 right-6 -mt-8 text-[8rem] font-black text-slate-50 select-none pointer-events-none z-0 group-hover:text-blue-50 transition-colors duration-500">
                 {{ stage.id }}
               </div>
-              
+
               <div class="relative z-10 space-y-8">
                 <!-- Icon -->
-                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex items-center justify-center shadow-lg shadow-blue-500/30 transform group-hover:-translate-y-1 transition-transform duration-300">
+                <div
+                  class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white flex items-center justify-center shadow-lg shadow-blue-500/30 transform group-hover:-translate-y-1 transition-transform duration-300">
                   <component :is="stage.icon" class="w-8 h-8" />
                 </div>
 
                 <!-- Title -->
                 <div>
-                  <h3 class="text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight group-hover:text-blue-600 transition-colors duration-300">{{ stage.title }}</h3>
+                  <h3
+                    class="text-3xl md:text-4xl font-bold text-slate-900 mb-3 tracking-tight group-hover:text-blue-600 transition-colors duration-300">
+                    {{ stage.title }}</h3>
                   <p class="text-blue-600/80 font-semibold tracking-widest text-sm uppercase">{{ stage.subtitle }}</p>
                 </div>
 
                 <!-- Details List -->
                 <ul class="space-y-5 pt-6 border-t border-slate-100">
                   <li v-for="(detail, idx) in stage.details" :key="idx" class="flex items-start group/item">
-                    <div class="mt-2.5 mr-4 shrink-0 w-2 h-2 rounded-full bg-transparent border-2 border-blue-400 group-hover/item:bg-blue-500 group-hover/item:border-blue-500 group-hover/item:scale-150 transition-all duration-300"></div>
+                    <div
+                      class="mt-2.5 mr-4 shrink-0 w-2 h-2 rounded-full bg-transparent border-2 border-blue-400 group-hover/item:bg-blue-500 group-hover/item:border-blue-500 group-hover/item:scale-150 transition-all duration-300">
+                    </div>
                     <span class="text-slate-600 text-lg font-light leading-relaxed">{{ detail }}</span>
                   </li>
                 </ul>
@@ -149,10 +113,9 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-[280px]">
-          <div v-for="(cap, idx) in coreCapabilities" :key="idx" v-motion :initial="{ opacity: 0, y: 30 }"
-            :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: idx * 100, ease: [0.16, 1, 0.3, 1] } }"
-            :visible-once="true"
-            :class="['group relative rounded-[2.5rem] p-10 overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 cursor-pointer', idx === 0 || idx === 3 ? 'bg-slate-900 text-white' : 'bg-white text-slate-900']">
+          <div v-for="(cap, idx) in coreCapabilities" :key="idx" data-reveal
+            :style="{ transitionDelay: idx * 80 + 'ms' }"
+            :class="['reveal-item group relative rounded-[2.5rem] p-10 overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 cursor-pointer', idx === 0 || idx === 3 ? 'bg-slate-900 text-white' : 'bg-white text-slate-900']">
             <div v-if="idx === 0 || idx === 3"
               class="absolute -top-20 -right-20 w-64 h-64 bg-blue-500/20 blur-[60px] rounded-full group-hover:bg-blue-500/30 transition-colors duration-500">
             </div>
@@ -199,11 +162,11 @@
           加入全球顶尖企业的行列，用 AI 赋能每一次采购决策。
         </p>
         <div class="flex justify-center pt-6">
-          <button
+          <RouterLink to="/join"
             class="px-10 py-5 rounded-full bg-slate-900 text-white font-medium text-lg hover:bg-slate-800 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center group shadow-xl shadow-slate-900/20">
-            申请加入网络
+            申请加入
             <ArrowRight class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </RouterLink>
         </div>
       </section>
 
@@ -212,11 +175,25 @@
 </template>
 
 <script setup>
-import { markRaw } from 'vue'
+import { markRaw, onMounted } from 'vue'
+import { RouterLink } from 'vue-router'
 import {
   Globe, Cpu, ShieldCheck, Zap, Search,
   MessageSquare, Scale, FileText, Lightbulb, ArrowRight
 } from 'lucide-vue-next'
+
+onMounted(() => {
+  const els = document.querySelectorAll('[data-reveal]')
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible')
+        obs.unobserve(entry.target)
+      }
+    })
+  }, { threshold: 0.1 })
+  els.forEach(el => obs.observe(el))
+})
 
 const pipelineStages = [
   {
@@ -311,3 +288,16 @@ const stats = [
   { value: "10W+", label: "每日监控动态风险事件" }
 ]
 </script>
+
+<style scoped>
+.reveal-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
