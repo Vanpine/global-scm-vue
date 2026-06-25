@@ -1,133 +1,63 @@
-# 全球供应链大平台 (Global SCM Vue)
+# 全球供应链智能决策平台
 
-AI 驱动的全球供需匹配平台前端项目。为采购商和供应商提供智能撮合、安全合规、实时风控能力——让采购商找到靠谱供应商，让供应商被优质客户发现。
+AI 驱动的全球供应链管理平台，覆盖**智慧采购**、**可信交付**、**决策中枢**三大核心场景，帮助企业感知风险、推演预案、自动响应。
 
 ## 技术栈
 
 | 类别 | 技术 |
 |---|---|
 | 框架 | Vue 3（Composition API + `<script setup>`） |
-| 构建工具 | Vite 8 |
+| 构建 | Vite |
 | 路由 | Vue Router 4 |
 | 样式 | Tailwind CSS v4 |
 | 图标 | Lucide Vue Next |
 | 动画 | `@vueuse/motion` |
 | 3D 地球 | Globe.gl（CDN 加载） |
-| 2D 地图 | Leaflet |
-| 实时数据 | GDACS（全球灾害） + USGS（地震） |
-| 包管理器 | pnpm |
-
-## 项目结构
-
-```
-global-scm-vue/
-├── index.html                  # HTML 入口（加载 Globe.gl CDN）
-├── vite.config.js              # Vite 配置（含 GDACS 代理）
-├── package.json
-├── pnpm-lock.yaml
-├── public/
-│   └── logo.png                # 浏览器 favicon
-└── src/
-    ├── main.js                 # 应用入口
-    ├── App.vue                 # 根组件
-    ├── assets/                 # 静态资源（图片、视频）
-    │   ├── logo-2.png          # 导航栏/页脚 Logo
-    │   └── vedio.mp4           # 首页 Hero 背景视频
-    ├── components/
-    │   ├── AppNavbar.vue       # 全局导航栏
-    │   ├── AppFooter.vue       # 全局页脚
-    │   ├── ImageWithFallback.vue  # 带降级处理的图片组件
-    │   └── home/
-    │       ├── Globe3D.vue         # 3D 地球可视化
-    │       ├── RiskDashboard.vue   # 数据中枢（GDACS + USGS）
-    │       └── RiskFeed.vue        # 地震快讯侧边栏
-    ├── layouts/
-    │   └── DefaultLayout.vue   # 默认布局（导航 + 内容 + 页脚）
-    ├── router/
-    │   └── index.js            # 路由配置
-    ├── styles/
-    │   ├── tailwind.css        # Tailwind 入口 + Google Fonts
-    │   └── theme.css           # shadcn 风格 CSS 变量主题
-    └── views/
-        ├── Home.vue            # 首页
-        ├── SmartProcurement.vue # 智慧采购
-        ├── TrustedDelivery.vue  # 可信交付
-        ├── DecisionCenter.vue   # 决策中枢
-        ├── Intel.vue            # 供应链新闻台
-        └── JoinUs.vue           # 申请加入
-```
-
-## 页面路由
-
-| 路径 | 页面 | 说明 |
-|---|---|---|
-| `/` | Home | 首页（Hero、POLYCRISIS、五大能力、3D 地球控制塔） |
-| `/smart-procurement` | SmartProcurement | 智慧采购解决方案 |
-| `/trusted-delivery` | TrustedDelivery | 可信交付解决方案 |
-| `/decision-center` | DecisionCenter | 决策中枢 |
-| `/news` | Intel | 供应链新闻台 + 实时风险地图 |
-| `/join` | JoinUs | 申请加入（分步表单） |
+| 实时数据 | GDACS + USGS |
+| 包管理 | pnpm |
 
 ## 快速开始
 
-### 环境要求
-
-- Node.js >= 18
-- pnpm >= 8
-
-### 安装依赖
-
 ```bash
+# 安装依赖
 pnpm install
-```
 
-### 启动开发服务器
-
-```bash
+# 启动开发服务器
 pnpm dev
+
+# 构建生产版本
+pnpm build
 ```
 
 浏览器访问 `http://localhost:5173`。
 
-### 构建生产版本
+## 页面结构
 
-```bash
-pnpm build
-```
+| 路径 | 页面 | 核心内容 |
+|---|---|---|
+| `/` | 首页 | Hero、多重危机、五大能力、3D 地球控制塔 |
+| `/smart-procurement` | 智慧采购 | 智能寻源 · 自动询盘 · 智能比价 · 合同管理 · 方案生成 |
+| `/trusted-delivery` | 可信交付 | 全链路追踪 · 风险前置感知 · 关务合规 · 结算对账 · 生态网络 |
+| `/decision-center` | 决策中枢 | 四大核心能力 · 沙盘推演 · 决策闭环 · AI 智能指挥 |
+| `/news` | 供应链新闻台 | 实时风险地图 + 灾害快讯 |
+| `/join` | 申请加入 | 企业入驻表单 |
 
-产物输出到 `dist/` 目录。
+## 三大核心场景
 
-### 预览生产构建
+### 智慧采购 — 全球寻源，精准匹配
 
-```bash
-pnpm preview
-```
+从寻源、尽调、询盘、比价到合同生成，AI 驱动全流程自动化。内置千万级供应商画像、自动尽调与合规扫描，让每一次采购都先人一步。
 
-## 实时数据说明
+### 可信交付 — 全程可视，交付无忧
 
-### 3D 地球控制塔（首页）
+数字孪生 + 实时预警，物流节点可视率达 95%，平均提前 48 小时预警。对接全球 35+ 船东与港区、80+ 航空公司、40+ 海关系统，让黑盒变白盒。
 
-数据来源：
+### 决策中枢 — 数据驱动，决策有据
 
-- **GDACS**（全球灾害预警系统）：通过 Vite 代理 `/gdacs` → `https://www.gdacs.org` 获取实时洪水、气旋、野火、干旱、火山数据
-- **USGS**（美国地质调查局）：前端直连 `earthquake.usgs.gov` 获取过去 24 小时全球 2.5 级以上地震
+四大核心能力（多维信号融合、智能预测引擎、仿真推演平台、自动决策中枢）+ 六大风险场景沙盘推演 + AI 智能指挥对话，实现感知 → 分析 → 决策 → 执行的完整闭环。
 
-两种数据每 60 秒自动刷新。灾害和地震点渲染为 3D 地球表面的彩色柱状标记（红 = 高危，橙 = 关注，绿 = 正常），高危区域叠加脉冲扩散圈。7 条全球主要贸易航线途经灾害区域时自动变色。
+## 实时数据（首页 3D 地球）
 
-### 2D 风险地图（供应链新闻台）
-
-同样使用 GDACS + USGS 实时数据，以 Leaflet 圆形标记渲染在可缩放的世界地图上。支持暗色/亮色瓦片切换。数据每 60 秒自动刷新。
-
-> 首次加载若 GDACS 数据获取失败（需通过 Vite 代理），地图会降级展示 USGS 地震数据。
-
-## 背景
-
-全球供应链面临多重危机——地缘冲突、航线中断、极端天气、关税壁垒——企业需要一个能实时感知风险、智能匹配供需的平台。
-
-本项目将传统的供应链管理从被动、割裂、脆弱的模式，转变为可预测、可重构、具备韧性的智能网络。核心能力：
-
-- **智能撮合**：AI 多维度解析采购需求与供应商产能，双向匹配
-- **安全合规**：制裁名单实时比对，多层股权穿透，分钟级尽调报告
-- **可信交付**：全链路透明追踪，关键节点自动存证
-- **全局风控**：24h 全球扫描地缘、关税、天气，自动关联供应商网络
-- **数据智脑**：全平台数据实时汇聚分析，决策有据可依
+- **GDACS**（全球灾害预警）：通过 Vite 代理实时获取洪水、气旋、野火、火山数据
+- **USGS**（地震数据）：直连获取过去 24 小时全球 2.5 级以上地震
+- 两种数据每 60 秒自动刷新，高危区域叠加脉冲扩散圈

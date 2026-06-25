@@ -554,7 +554,7 @@ import { RouterLink } from 'vue-router'
 import {
   BarChart3, TrendingUp, AlertTriangle, PackageSearch,
   ShoppingCart, Factory, ArrowRight, ShieldAlert, Target,
-  CheckCircle2, Bot, Send, Globe, ChevronLeft, ChevronRight,
+  CheckCircle2, Bot, Globe, ChevronLeft, ChevronRight,
   Cpu, Zap, Activity
 } from 'lucide-vue-next'
 import ImageWithFallback from '@/components/ImageWithFallback.vue'
