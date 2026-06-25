@@ -4,30 +4,27 @@
     <div class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-900 text-white">
       <div class="absolute inset-0 overflow-hidden">
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1639322537228-f710d846310a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnbG9iYWwlMjBidXNpbmVzcyUyMG5ldHdvcmslMjBzdXBwbHklMjBjaGFpbnxlbnwxfHx8fDE3ODIyOTE0NjN8MA&ixlib=rb-4.1.0&q=80&w=1080"
-          class="w-full h-full object-cover opacity-30 mix-blend-overlay" alt="Background" />
-        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-slate-900/80 to-slate-900"></div>
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXRhY2VudGVyfGVufDF8fHx8MTc4MjI5MTQ2M3ww&ixlib=rb-4.1.0&q=80&w=1080"
+          class="w-full h-full object-cover opacity-20 mix-blend-luminosity filter contrast-125" alt="Background" />
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0a0f1c]/90 via-[#0a0f1c]/70 to-[#020617]"></div>
 
-        <div class="absolute -top-40 -right-40 w-96 h-96 bg-blue-600/30 rounded-full blur-[100px]"></div>
-        <div class="absolute bottom-0 -left-40 w-96 h-96 bg-indigo-600/20 rounded-full blur-[100px]"></div>
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-blue-600/20 rounded-full blur-[100px]"></div>
+        <div class="absolute bottom-0 -left-40 w-96 h-96 bg-emerald-600/10 rounded-full blur-[100px]"></div>
       </div>
       <div class="relative z-10 w-[85%] mx-auto px-6 md:px-8 text-center">
-        <div
-          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-sm font-medium mb-6">
-          <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-          JOIN US
-        </div>
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 text-white">
           加入全球供应链<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">大平台</span>
         </h1>
         <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
           完成身份预审，让全球合作伙伴发现你。审核通过后即可使用平台全部能力。
         </p>
       </div>
+      <!-- Transition Decorative Element -->
+      <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-slate-50 to-transparent z-10 pointer-events-none"></div>
     </div>
 
     <!-- Main Content -->
-    <div class="flex-1 py-16 md:py-28 px-6">
+    <div class="relative z-20 flex-1 bg-slate-50 rounded-t-[3rem] -mt-16 pt-24 pb-16 md:pb-28 px-6 shadow-[0_-20px_40px_rgba(0,0,0,0.1)]">
       <div class="max-w-4xl mx-auto">
 
         <!-- Progress Bar -->

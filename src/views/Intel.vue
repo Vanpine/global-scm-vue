@@ -2,44 +2,58 @@
   <div class="bg-[#F5F5F7] min-h-screen text-slate-900 selection:bg-blue-200">
 
     <!-- ===== Hero ===== -->
-    <section class="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-black">
-      <ImageWithFallback
-        src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1920&q=85"
-        alt="Intel Hero" class="absolute inset-0 w-full h-full object-cover opacity-70" />
-      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/80 z-10" />
+    <section class="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-[#0a0f1c]">
+      
+      <!-- Tech/News Global Background (Apple-style Dark) -->
+      <div class="absolute inset-0 z-0">
+        <!-- Abstract Global Data Network Image -->
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2500&q=80"
+          alt="Global Intel Dashboard"
+          class="w-full h-full object-cover object-center opacity-40 mix-blend-luminosity scale-105 filter contrast-125" />
+          
+        <!-- Gradient Overlays to blend with content below -->
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0a0f1c]/90 via-[#0a0f1c]/70 to-[#020617]"></div>
 
-      <div class="relative z-20 text-center px-6 max-w-4xl mx-auto mt-20">
+        <!-- Glowing Orbs for Depth (Emerald/Teal for Intel vibe instead of Blue/Purple) -->
+        <div class="absolute top-1/4 left-1/4 w-[40rem] h-[40rem] bg-emerald-600/15 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[40rem] h-[40rem] bg-teal-600/15 rounded-full blur-[120px]"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-20 text-center px-6 max-w-4xl mx-auto -mt-10">
         <h1 v-motion :initial="{ opacity: 0, y: 30 }"
           :enter="{ opacity: 1, y: 0, transition: { duration: 800, ease: [0.16, 1, 0.3, 1] } }"
-          class="text-6xl md:text-8xl font-semibold tracking-tight text-white mb-6">
-          全球情报<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-300">要闻</span>
+          class="text-6xl md:text-8xl font-bold tracking-tight text-white mb-6 leading-[1.1]">
+          全球情报<span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">要闻</span>
         </h1>
         <p v-motion :initial="{ opacity: 0, y: 30 }"
           :enter="{ opacity: 1, y: 0, transition: { duration: 800, delay: 100, ease: [0.16, 1, 0.3, 1] } }"
-          class="text-xl md:text-3xl text-white/90 font-light mb-10 tracking-wide">
+          class="text-xl md:text-2xl text-slate-300 font-light mb-12 tracking-wide leading-relaxed max-w-2xl mx-auto">
           实时追踪政策、关税、地缘与物流动态
         </p>
 
+        <!-- Categories Tags (Dark Mode) -->
         <div v-motion :initial="{ opacity: 0, y: 30 }"
           :enter="{ opacity: 1, y: 0, transition: { duration: 800, delay: 200, ease: [0.16, 1, 0.3, 1] } }"
-          class="flex flex-wrap items-center justify-center gap-6 text-white/80 font-medium mb-12">
-          <span class="flex items-center gap-2">
-            <FileText class="w-5 h-5" /> 政策速递
+          class="flex flex-wrap items-center justify-center gap-4 text-slate-300 font-medium">
+          <span class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 shadow-lg hover:bg-white/20 hover:-translate-y-0.5 transition-all duration-300 cursor-default">
+            <FileText class="w-4 h-4 text-emerald-400" /> 政策速递
           </span>
-          <span class="hidden md:inline-block w-1.5 h-1.5 rounded-full bg-white/30" />
-          <span class="flex items-center gap-2">
-            <Globe class="w-5 h-5" /> 地缘观察
+          <span class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 shadow-lg hover:bg-white/20 hover:-translate-y-0.5 transition-all duration-300 cursor-default">
+            <Globe class="w-4 h-4 text-teal-400" /> 地缘观察
           </span>
-          <span class="hidden md:inline-block w-1.5 h-1.5 rounded-full bg-white/30" />
-          <span class="flex items-center gap-2">
-            <Truck class="w-5 h-5" /> 物流快报
+          <span class="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/10 shadow-lg hover:bg-white/20 hover:-translate-y-0.5 transition-all duration-300 cursor-default">
+            <Truck class="w-4 h-4 text-cyan-400" /> 物流快报
           </span>
         </div>
       </div>
+      
+      <!-- Decorative Bottom Transition -->
+      <div class="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#F5F5F7] to-transparent z-10 pointer-events-none"></div>
     </section>
 
     <!-- ===== News Groups ===== -->
-    <section class="py-24 px-6 lg:px-8 w-[85%] mx-auto">
+    <section class="relative z-20 bg-[#F5F5F7] rounded-t-[3rem] -mt-16 pt-24 pb-24 px-6 lg:px-8 w-full max-w-[85%] mx-auto">
       <div v-for="group in NEWS_GROUPS" :key="group.category" v-motion :initial="{ opacity: 0, y: 40 }"
         :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: [0.16, 1, 0.3, 1] } }" :visible-once="true"
         class="mb-20 last:mb-0">

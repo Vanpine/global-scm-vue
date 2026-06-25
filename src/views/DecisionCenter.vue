@@ -169,7 +169,7 @@
             沙盘推演，未雨绸缪
           </h2>
           <p class="text-xl md:text-2xl text-slate-500 font-light leading-relaxed">
-            六大供应链风险场景模拟。<br/>在真正的危机发生前，预演每一个可能，生成万全对策。
+            六大供应链风险场景模拟。<br />在真正的危机发生前，预演每一个可能，生成万全对策。
           </p>
         </div>
 
@@ -179,26 +179,29 @@
             class="flex gap-6 overflow-x-auto snap-x snap-mandatory carousel-track pb-12 pt-4 px-4 -mx-4">
             <div v-for="(scenario, idx) in scenarios" :key="idx"
               class="snap-start shrink-0 w-[85vw] md:w-[400px] lg:w-[420px] h-[600px] relative group rounded-[3rem] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)] transition-all duration-700 cursor-pointer">
-              
+
               <!-- Background Image -->
-              <img :src="scenario.image" :alt="scenario.title" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]" />
-              
+              <img :src="scenario.image" :alt="scenario.title"
+                class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+
               <!-- Gradient Overlay -->
               <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
-              
+
               <!-- Content Area -->
               <div class="absolute inset-x-0 bottom-0 p-8 md:p-10 flex flex-col justify-end h-full">
                 <!-- Text Content -->
                 <h3 class="text-3xl font-bold text-white mb-3 tracking-tight">{{ scenario.title }}</h3>
                 <p class="text-slate-300 font-light leading-relaxed mb-6">{{ scenario.desc }}</p>
-                
+
                 <!-- Sleek Outputs Box -->
                 <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-5 border border-white/20">
-                  <div class="text-[11px] text-white/60 font-semibold mb-3 flex items-center gap-2 uppercase tracking-widest">
+                  <div
+                    class="text-[11px] text-white/60 font-semibold mb-3 flex items-center gap-2 uppercase tracking-widest">
                     <Activity class="w-3.5 h-3.5" /> 预案产出 (Outputs)
                   </div>
                   <ul class="space-y-2.5">
-                    <li v-for="(item, i) in scenario.outputs" :key="i" class="flex items-start text-sm text-white/90 font-light leading-relaxed">
+                    <li v-for="(item, i) in scenario.outputs" :key="i"
+                      class="flex items-start text-sm text-white/90 font-light leading-relaxed">
                       <CheckCircle2 class="w-4 h-4 text-white/40 mr-2.5 shrink-0 mt-0.5" />
                       {{ item }}
                     </li>
@@ -352,7 +355,8 @@
                 <div class="space-y-1.5 w-full">
                   <div class="text-[10px] text-slate-500 font-mono ml-1 flex items-center gap-2">
                     <span>SYSTEM_ALERT</span><span class="w-1 h-1 rounded-full bg-slate-600"></span><span>08:42
-                      AM</span></div>
+                      AM</span>
+                  </div>
                   <div
                     class="bg-gradient-to-br from-red-500/10 to-transparent border border-red-500/20 rounded-2xl rounded-tl-none p-4 text-sm text-red-100/90 leading-relaxed">
                     预测到下季度欧洲市场核心 <span class="font-bold text-red-400">MCU 组件需求将激增 40%</span>，按现有采购计划，库存将在 <span
@@ -362,7 +366,8 @@
               <div class="flex gap-3 w-10/12 self-end ml-auto flex-row-reverse">
                 <div
                   class="w-8 h-8 rounded-full bg-slate-800 border border-slate-600 flex items-center justify-center shrink-0">
-                  <span class="text-[10px] font-black text-slate-300">CMD</span></div>
+                  <span class="text-[10px] font-black text-slate-300">CMD</span>
+                </div>
                 <div class="space-y-1.5 w-full flex flex-col items-end">
                   <div class="text-[10px] text-slate-500 font-mono mr-1 flex items-center gap-2"><span>08:45
                       AM</span><span class="w-1 h-1 rounded-full bg-slate-600"></span><span>DIRECTOR_INPUT</span></div>
