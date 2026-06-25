@@ -164,63 +164,67 @@
     <!-- ===== Scenario Simulation ===== -->
     <section class="w-full bg-[#Fbfbfd] py-32 relative overflow-hidden">
       <div class="max-w-[90rem] mx-auto px-6 lg:px-8 relative z-10">
-        <div class="text-center mb-24">
-          <div class="text-3xl md:text-5xl font-bold tracking-widest text-slate-200 mb-4 uppercase">Scenario Planning
-          </div>
-          <h2 class="text-2xl md:text-3xl font-medium text-slate-500">沙盘推演，未雨绸缪 — 模拟六大供应链风险场景，提前生成应对预案</h2>
+        <div class="text-center mb-20 max-w-4xl mx-auto">
+          <h2 class="text-5xl md:text-6xl font-bold tracking-tight text-slate-900 mb-6">
+            沙盘推演，未雨绸缪
+          </h2>
+          <p class="text-xl md:text-2xl text-slate-500 font-light leading-relaxed">
+            六大供应链风险场景模拟。<br/>在真正的危机发生前，预演每一个可能，生成万全对策。
+          </p>
         </div>
 
+        <!-- Carousel for Scenarios -->
         <div class="relative">
           <div ref="carouselRef" @scroll="onScroll"
-            class="flex gap-6 overflow-x-auto snap-x snap-mandatory carousel-track pb-4">
+            class="flex gap-6 overflow-x-auto snap-x snap-mandatory carousel-track pb-12 pt-4 px-4 -mx-4">
             <div v-for="(scenario, idx) in scenarios" :key="idx"
-              class="snap-start shrink-0 w-[85vw] md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] relative group">
-              <div
-                class="h-full bg-white border border-slate-100 rounded-[2.5rem] p-8 shadow-sm hover:shadow-lg transition-all duration-500 flex flex-col">
-                <div class="relative w-full h-48 rounded-2xl overflow-hidden mb-8">
-                  <img :src="scenario.image" :alt="scenario.title"
-                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent"></div>
-                </div>
-                <div class="flex-1 flex flex-col">
-                  <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">{{
-                    scenario.title }}</h3>
-                  <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-1">{{ scenario.desc }}</p>
-                  <div class="bg-slate-50 rounded-2xl p-5 border border-slate-100 font-mono">
-                    <div class="text-xs text-indigo-600 mb-3 flex items-center gap-2">
-                      <Zap class="w-3 h-3" /> EXPECTED_OUTPUTS
-                    </div>
-                    <ul class="space-y-3">
-                      <li v-for="(item, i) in scenario.outputs" :key="i"
-                        class="flex items-start text-sm text-slate-600">
-                        <span class="text-emerald-500 mr-2 mt-0.5">❯</span>
-                        {{ item }}
-                      </li>
-                    </ul>
+              class="snap-start shrink-0 w-[85vw] md:w-[400px] lg:w-[420px] h-[600px] relative group rounded-[3rem] overflow-hidden shadow-[0_10px_40px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)] transition-all duration-700 cursor-pointer">
+              
+              <!-- Background Image -->
+              <img :src="scenario.image" :alt="scenario.title" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+              
+              <!-- Gradient Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+              
+              <!-- Content Area -->
+              <div class="absolute inset-x-0 bottom-0 p-8 md:p-10 flex flex-col justify-end h-full">
+                <!-- Text Content -->
+                <h3 class="text-3xl font-bold text-white mb-3 tracking-tight">{{ scenario.title }}</h3>
+                <p class="text-slate-300 font-light leading-relaxed mb-6">{{ scenario.desc }}</p>
+                
+                <!-- Sleek Outputs Box -->
+                <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-5 border border-white/20">
+                  <div class="text-[11px] text-white/60 font-semibold mb-3 flex items-center gap-2 uppercase tracking-widest">
+                    <Activity class="w-3.5 h-3.5" /> 预案产出 (Outputs)
                   </div>
-                </div>
-                <div
-                  class="absolute inset-0 rounded-[2.5rem] border-2 border-indigo-500/0 group-hover:border-indigo-500/20 transition-colors duration-500 pointer-events-none">
+                  <ul class="space-y-2.5">
+                    <li v-for="(item, i) in scenario.outputs" :key="i" class="flex items-start text-sm text-white/90 font-light leading-relaxed">
+                      <CheckCircle2 class="w-4 h-4 text-white/40 mr-2.5 shrink-0 mt-0.5" />
+                      {{ item }}
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
           </div>
 
+          <!-- Prev / Next Buttons (Floating outside) -->
           <button @click="prev"
-            class="absolute -left-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-600 hover:bg-slate-50 hover:shadow-md transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            class="hidden md:flex absolute -left-6 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white/80 backdrop-blur-lg border border-slate-200/50 shadow-lg items-center justify-center text-slate-700 hover:scale-105 hover:bg-white transition-all disabled:opacity-0 disabled:scale-95 disabled:pointer-events-none z-20"
             :disabled="currentIndex === 0">
-            <ChevronLeft class="w-5 h-5" />
+            <ChevronLeft class="w-6 h-6" />
           </button>
           <button @click="next"
-            class="absolute -right-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-600 hover:bg-slate-50 hover:shadow-md transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+            class="hidden md:flex absolute -right-6 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white/80 backdrop-blur-lg border border-slate-200/50 shadow-lg items-center justify-center text-slate-700 hover:scale-105 hover:bg-white transition-all disabled:opacity-0 disabled:scale-95 disabled:pointer-events-none z-20"
             :disabled="currentIndex >= maxIndex">
-            <ChevronRight class="w-5 h-5" />
+            <ChevronRight class="w-6 h-6" />
           </button>
 
+          <!-- Dots (Pill style) -->
           <div class="flex justify-center gap-2 mt-8">
             <button v-for="(_, idx) in slidesCount" :key="idx" @click="goTo(idx)"
-              class="w-2.5 h-2.5 rounded-full transition-all duration-300"
-              :class="idx === currentIndex ? 'bg-indigo-500 w-8' : 'bg-slate-200 hover:bg-slate-300'" />
+              class="h-2 rounded-full transition-all duration-300"
+              :class="idx === currentIndex ? 'bg-slate-800 w-8' : 'bg-slate-300 w-2 hover:bg-slate-400'" />
           </div>
         </div>
       </div>
