@@ -253,7 +253,7 @@ onUnmounted(() => {
 
 <template>
   <section class="py-32 bg-slate-950 text-white relative" id="risk">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="w-[85%] mx-auto px-6 lg:px-8">
       <div class="text-center mb-16">
         <div class="text-sm font-bold tracking-widest text-slate-500 mb-4 uppercase">CONTROL TOWER</div>
         <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-white">全球风险地图 · 实时控制塔</h2>

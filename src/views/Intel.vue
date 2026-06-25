@@ -39,7 +39,7 @@
     </section>
 
     <!-- ===== News Groups ===== -->
-    <section class="py-24 px-6 lg:px-8 max-w-7xl mx-auto">
+    <section class="py-24 px-6 lg:px-8 w-[85%] mx-auto">
       <div v-for="group in NEWS_GROUPS" :key="group.category" v-motion :initial="{ opacity: 0, y: 40 }"
         :visible="{ opacity: 1, y: 0, transition: { duration: 600, ease: [0.16, 1, 0.3, 1] } }" :visible-once="true"
         class="mb-20 last:mb-0">
@@ -85,7 +85,7 @@
     </section>
 
     <!-- ===== Leaflet Map ===== -->
-    <section class="py-16 px-6 lg:px-8 max-w-7xl mx-auto">
+    <section class="py-16 px-6 lg:px-8 w-[85%] mx-auto">
       <div class="text-center mb-12">
         <div class="text-sm font-bold tracking-widest text-slate-400 mb-4 uppercase">INTERACTIVE MAP · 区域态势</div>
         <h2 class="text-3xl md:text-4xl font-semibold text-slate-900 mb-4">可缩放的全球风险地图</h2>

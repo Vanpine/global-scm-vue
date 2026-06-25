@@ -43,7 +43,7 @@
     </section>
 
     <!-- KPI Stats -->
-    <section class="relative z-20 -mt-24 max-w-7xl mx-auto px-6 lg:px-8">
+    <section class="relative z-20 -mt-24 w-full mx-auto px-6 lg:px-8">
       <div
         v-motion
         :initial="{ opacity: 0, y: 40 }"
@@ -61,7 +61,7 @@
 
     <!-- Capabilities Zig-Zag -->
     <section class="py-32 overflow-hidden bg-[#fafafa]">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8 space-y-32">
+      <div class="w-[85%] mx-auto px-6 lg:px-8 space-y-32">
         <div
           v-for="cap in CAPABILITIES"
           :key="cap.id"
@@ -231,7 +231,7 @@
 
     <!-- Ecosystem -->
     <section class="py-32 bg-white relative overflow-hidden">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div class="w-[85%] mx-auto px-6 lg:px-8 relative z-10">
         <div class="text-center max-w-3xl mx-auto mb-20">
           <h2 class="text-3xl md:text-5xl font-semibold text-slate-900 mb-6 tracking-tight">开箱即用的全球生态网络</h2>
           <p class="text-lg md:text-xl text-slate-500 font-light leading-relaxed">

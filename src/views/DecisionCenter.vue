@@ -23,7 +23,7 @@
     </section>
 
     <!-- ===== KPI Cards Section ===== -->
-    <section class="relative z-20 -mt-32 max-w-7xl mx-auto px-6 md:px-8 mb-24">
+    <section class="relative z-20 -mt-32 w-full mx-auto px-6 md:px-8 mb-24">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         <div v-for="(kpi, idx) in kpis" :key="idx"
           class="bg-white/70 backdrop-blur-2xl border border-white p-6 rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group">
@@ -38,7 +38,7 @@
     </section>
 
     <!-- ===== Core Capabilities (Bento Grid) ===== -->
-    <section class="max-w-7xl mx-auto px-6 md:px-8 py-12 md:py-24">
+    <section class="w-[85%] mx-auto px-6 md:px-8 py-12 md:py-24">
       <div class="mb-16">
         <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">四大核心能力</h2>
         <p class="text-xl text-slate-500 font-light">打破数据孤岛，实现从需求感知到生产排程的智能闭环。</p>
@@ -180,7 +180,7 @@
         <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/20 rounded-full blur-[100px]"></div>
       </div>
 
-      <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
+      <div class="w-[85%] mx-auto px-6 md:px-8 relative z-10">
         <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
 
           <div class="flex-1">

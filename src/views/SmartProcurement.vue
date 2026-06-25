@@ -39,7 +39,7 @@
     <div class="relative z-20 bg-[#F5F5F7] rounded-t-[3rem] -mt-16 pt-24 pb-32 shadow-[0_-20px_40px_rgba(0,0,0,0.1)]">
 
       <!-- Pipeline -->
-      <section class="max-w-7xl mx-auto px-6 lg:px-8 mb-32">
+      <section class="w-[85%] mx-auto px-6 lg:px-8 mb-32">
         <div class="text-center mb-20">
           <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6">全链路智能决策矩阵</h2>
           <p class="text-xl text-slate-500 font-light max-w-2xl mx-auto">消除采购流程中的信息壁垒与人工冗余，实现端到端的业务飞跃。</p>
@@ -90,7 +90,7 @@
       </section>
 
       <!-- Bento Grid -->
-      <section class="max-w-7xl mx-auto px-6 lg:px-8 mb-32">
+      <section class="w-[85%] mx-auto px-6 lg:px-8 mb-32">
         <div class="mb-20 text-center">
           <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6">核心技术底座</h2>
           <p class="text-xl text-slate-500 font-light max-w-2xl mx-auto">构建于下一代云原生架构与垂直大模型之上，坚不可摧。</p>
@@ -122,7 +122,7 @@
       </section>
 
       <!-- Stats -->
-      <section class="max-w-7xl mx-auto px-6 lg:px-8 mb-32">
+      <section class="w-full mx-auto px-6 lg:px-8 mb-32">
         <div class="bg-white rounded-[3rem] p-12 md:p-20 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
           <div class="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8 divide-x divide-slate-100">
             <div v-for="(stat, idx) in stats" :key="idx" class="text-center px-4">

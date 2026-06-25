@@ -2,8 +2,8 @@
   <footer class="relative bg-[#0a0d16] text-[#8b93a3] pt-20 pb-9 text-[15px] mt-auto">
     <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[rgba(108,178,255,0.45)] to-transparent"></div>
 
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.9fr_1fr_1fr_1fr] gap-x-8 gap-y-12 lg:gap-14 pb-12 border-b border-white/10">
+    <div class="w-[75%] mx-auto px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:justify-between gap-y-12 md:gap-x-8 lg:gap-14 pb-12 border-b border-white/10">
 
         <div class="flex flex-col">
           <RouterLink to="/" class="text-[19px] font-bold text-white mb-3 flex items-center gap-[9px]" aria-label="Home">
@@ -37,32 +37,34 @@
           </div>
         </div>
 
-        <div>
-          <h5 class="text-white text-[18px] mb-5 font-medium">解决方案</h5>
-          <ul class="space-y-0">
-            <li class="py-[9px]"><RouterLink to="/smart-procurement" class="text-[#8b93a3] hover:text-white transition-colors duration-200">智慧采购</RouterLink></li>
-            <li class="py-[9px]"><RouterLink to="/trusted-delivery" class="text-[#8b93a3] hover:text-white transition-colors duration-200">可信交付</RouterLink></li>
-            <li class="py-[9px]"><RouterLink to="/decision-center" class="text-[#8b93a3] hover:text-white transition-colors duration-200">决策中枢</RouterLink></li>
-          </ul>
-        </div>
+        <div class="flex gap-x-8 lg:gap-40">
+          <div>
+            <h5 class="text-white text-[18px] mb-5 font-medium">解决方案</h5>
+            <ul class="space-y-0">
+              <li class="py-[9px]"><RouterLink to="/smart-procurement" class="text-[#8b93a3] hover:text-white transition-colors duration-200">智慧采购</RouterLink></li>
+              <li class="py-[9px]"><RouterLink to="/trusted-delivery" class="text-[#8b93a3] hover:text-white transition-colors duration-200">可信交付</RouterLink></li>
+              <li class="py-[9px]"><RouterLink to="/decision-center" class="text-[#8b93a3] hover:text-white transition-colors duration-200">决策中枢</RouterLink></li>
+            </ul>
+          </div>
 
-        <div>
-          <h5 class="text-white text-[18px] mb-5 font-medium">平台能力</h5>
-          <ul class="space-y-0">
-            <li class="py-[9px]"><RouterLink to="/smart-procurement" class="text-[#8b93a3] hover:text-white transition-colors duration-200">智能寻源与采购</RouterLink></li>
-            <li class="py-[9px]"><RouterLink to="/trusted-delivery" class="text-[#8b93a3] hover:text-white transition-colors duration-200">全链路追踪交付</RouterLink></li>
-            <li class="py-[9px]"><RouterLink to="/decision-center" class="text-[#8b93a3] hover:text-white transition-colors duration-200">数据决策分析</RouterLink></li>
-          </ul>
-        </div>
+          <div>
+            <h5 class="text-white text-[18px] mb-5 font-medium">平台能力</h5>
+            <ul class="space-y-0">
+              <li class="py-[9px]"><RouterLink to="/smart-procurement" class="text-[#8b93a3] hover:text-white transition-colors duration-200">智能寻源与采购</RouterLink></li>
+              <li class="py-[9px]"><RouterLink to="/trusted-delivery" class="text-[#8b93a3] hover:text-white transition-colors duration-200">全链路追踪交付</RouterLink></li>
+              <li class="py-[9px]"><RouterLink to="/decision-center" class="text-[#8b93a3] hover:text-white transition-colors duration-200">数据决策分析</RouterLink></li>
+            </ul>
+          </div>
 
-        <div>
-          <h5 class="text-white text-[18px] mb-5 font-medium">公司</h5>
-          <ul class="space-y-0">
-            <li class="py-[9px]"><a href="#" class="text-[#8b93a3] hover:text-white transition-colors duration-200">关于我们</a></li>
-            <li class="py-[9px]"><a href="#" class="text-[#8b93a3] hover:text-white transition-colors duration-200">联系我们</a></li>
-            <li class="py-[9px]"><a href="#" class="text-[#8b93a3] hover:text-white transition-colors duration-200">新闻资讯</a></li>
-            <li class="py-[9px]"><a href="#" class="text-[#8b93a3] hover:text-white transition-colors duration-200">加入我们</a></li>
-          </ul>
+          <div>
+            <h5 class="text-white text-[18px] mb-5 font-medium">公司</h5>
+            <ul class="space-y-0">
+              <li class="py-[9px]"><a href="#" class="text-[#8b93a3] hover:text-white transition-colors duration-200">关于我们</a></li>
+              <li class="py-[9px]"><a href="#" class="text-[#8b93a3] hover:text-white transition-colors duration-200">联系我们</a></li>
+              <li class="py-[9px]"><a href="#" class="text-[#8b93a3] hover:text-white transition-colors duration-200">新闻资讯</a></li>
+              <li class="py-[9px]"><a href="#" class="text-[#8b93a3] hover:text-white transition-colors duration-200">加入我们</a></li>
+            </ul>
+          </div>
         </div>
       </div>
 

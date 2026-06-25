@@ -3,105 +3,92 @@
 
     <!-- ===== Hero ===== -->
     <section class="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-black">
-      <video
-        :src="heroVideo"
-        autoplay
-        muted
-        loop
-        playsinline
-        class="absolute inset-0 w-full h-full object-cover z-0 opacity-70"
-      />
-      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/80 z-10" />
+      <video :src="heroVideo" autoplay muted loop playsinline
+        class="absolute inset-0 w-full h-full object-cover z-0 opacity-90" />
+      <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/60 z-10" />
 
       <div class="relative z-20 text-center px-6 max-w-4xl mx-auto mt-20">
-        <h1
-          v-motion
-          :initial="{ opacity: 0, y: 30 }"
+        <h1 v-motion :initial="{ opacity: 0, y: 30 }"
           :enter="{ opacity: 1, y: 0, transition: { duration: 800, ease: [0.16, 1, 0.3, 1] } }"
-          class="text-6xl md:text-8xl font-semibold tracking-tight text-white mb-6"
-        >
-          全球供应链<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-300">大平台</span>
+          class="text-6xl md:text-8xl font-semibold tracking-tight text-white mb-6">
+          全球供应链<span>大平台</span>
         </h1>
-        <p
-          v-motion
-          :initial="{ opacity: 0, y: 30 }"
+        <p v-motion :initial="{ opacity: 0, y: 30 }"
           :enter="{ opacity: 1, y: 0, transition: { duration: 800, delay: 100, ease: [0.16, 1, 0.3, 1] } }"
-          class="text-xl md:text-3xl text-white/90 font-light mb-10 tracking-wide"
-        >
+          class="text-xl md:text-3xl text-white/90 font-light mb-10 tracking-wide">
           赋能地方资源 · 连接全球市场
         </p>
 
-        <div
-          v-motion
-          :initial="{ opacity: 0, y: 30 }"
+        <div v-motion :initial="{ opacity: 0, y: 30 }"
           :enter="{ opacity: 1, y: 0, transition: { duration: 800, delay: 200, ease: [0.16, 1, 0.3, 1] } }"
-          class="flex flex-wrap items-center justify-center gap-6 text-white/80 font-medium mb-12"
-        >
-          <span class="flex items-center gap-2"><TrendingDown class="w-5 h-5" /> 降本增效</span>
+          class="flex flex-wrap items-center justify-center gap-6 text-white/80 font-medium mb-12">
+          <span class="flex items-center gap-2">
+            <TrendingDown class="w-5 h-5" /> 降本增效
+          </span>
           <span class="hidden md:inline-block w-1.5 h-1.5 rounded-full bg-white/30" />
-          <span class="flex items-center gap-2"><ShieldCheck class="w-5 h-5" /> 抗风险</span>
+          <span class="flex items-center gap-2">
+            <ShieldCheck class="w-5 h-5" /> 抗风险
+          </span>
           <span class="hidden md:inline-block w-1.5 h-1.5 rounded-full bg-white/30" />
-          <span class="flex items-center gap-2"><Cpu class="w-5 h-5" /> AI 赋能</span>
+          <span class="flex items-center gap-2">
+            <Cpu class="w-5 h-5" /> AI 赋能
+          </span>
         </div>
 
-        <div
-          v-motion
-          :initial="{ opacity: 0, y: 30 }"
+        <div v-motion :initial="{ opacity: 0, y: 30 }"
           :enter="{ opacity: 1, y: 0, transition: { duration: 800, delay: 300, ease: [0.16, 1, 0.3, 1] } }"
-          class="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <RouterLink to="/join" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-slate-950 font-medium hover:scale-105 transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.2)]">
+          class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <RouterLink to="/join"
+            class="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-slate-950 font-medium hover:scale-105 transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.2)]">
             申请加入 &rarr;
           </RouterLink>
-          <RouterLink to="/smart-procurement" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 border border-white/20 text-white font-medium hover:bg-white/20 backdrop-blur-md transition-all duration-300">
-            了解产品 &rarr;
+          <RouterLink to="/smart-procurement"
+            class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 border border-white/20 text-white font-medium hover:bg-white/20 backdrop-blur-md transition-all duration-300">
+            探索解决方案 &rarr;
           </RouterLink>
         </div>
       </div>
     </section>
 
     <!-- ===== Polycrisis ===== -->
-    <section class="py-32 px-6 lg:px-8 max-w-7xl mx-auto">
+    <section ref="crisisSection" class="py-32 px-6 lg:px-8 w-[85%] mx-auto">
       <div class="text-center mb-20">
         <div class="text-4xl md:text-6xl font-bold tracking-widest text-slate-200 mb-4 uppercase">POLYCRISIS</div>
         <h2 class="text-2xl md:text-3xl font-medium text-slate-500">供应链的多重危机</h2>
       </div>
 
-      <TransitionGroup name="crisis" tag="div" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <article
-          v-for="(crisis, idx) in visibleCrises"
-          :key="crisis.title"
-          v-motion
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <article v-for="(crisis, idx) in visibleCrises" :key="crisis.title" v-motion
           :initial="{ opacity: 0, scale: 0.95 }"
           :enter="{ opacity: 1, scale: 1, transition: { duration: 500, delay: idx * 50 } }"
-          class="bg-white rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl transition-shadow group flex flex-col"
-        >
+          class="bg-white rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl transition-shadow group flex flex-col">
           <div class="h-64 overflow-hidden relative">
-            <ImageWithFallback
-              :src="crisis.img"
-              :alt="crisis.title"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
+            <ImageWithFallback :src="crisis.img" :alt="crisis.title"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
           </div>
-          <div class="p-8 flex-1 flex flex-col">
+          <div class="p-8 flex flex-col">
             <h3 class="text-xl font-semibold text-slate-900 mb-2">{{ crisis.title }}</h3>
             <p class="text-slate-500 font-medium text-sm mb-6 pb-6 border-b border-slate-100">{{ crisis.sub }}</p>
-            <ul class="space-y-3 mt-auto">
-              <li v-for="(bullet, i) in crisis.bullets" :key="i" class="flex items-start text-sm text-slate-600 leading-relaxed">
+            <ul class="space-y-3">
+              <li v-for="(bullet, i) in crisis.bullets" :key="i"
+                class="flex items-start text-sm text-slate-600 leading-relaxed">
                 <span class="text-blue-500 mr-2 mt-1">&bull;</span>
                 {{ bullet }}
               </li>
             </ul>
           </div>
         </article>
-      </TransitionGroup>
+      </div>
 
-      <div v-if="!showAllCrises" class="mt-16 text-center">
-        <button
-          @click="showAllCrises = true"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors shadow-sm"
-        >
-          查看全部危机 <ChevronDown class="w-4 h-4" />
+      <div class="mt-16 text-center">
+        <button @click="toggleCrises"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors shadow-sm">
+          <template v-if="showAllCrises">收起
+            <ChevronUp class="w-4 h-4" />
+          </template>
+          <template v-else>查看全部危机
+            <ChevronDown class="w-4 h-4" />
+          </template>
         </button>
       </div>
     </section>
@@ -112,34 +99,30 @@
         <ImageWithFallback
           src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=80"
           alt="AI Supply Chain"
-          class="w-full h-full object-cover opacity-30 mix-blend-luminosity scale-105 animate-[pulse_20s_ease-in-out_infinite_alternate]"
-        />
+          class="w-full h-full object-cover opacity-30 mix-blend-luminosity scale-105 animate-[pulse_20s_ease-in-out_infinite_alternate]" />
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent"></div>
       </div>
       <div class="relative z-10 px-6 max-w-4xl mx-auto text-center">
         <h2 class="text-5xl md:text-7xl font-semibold text-white mb-8 tracking-tight">AI 重塑全球供应链</h2>
         <p class="text-xl md:text-2xl text-slate-300 font-light leading-relaxed mb-12">
-          将全球供应链从被动、割裂、脆弱的系统，<br class="hidden md:block"/>转变为可预测、可重构、具备韧性的智能网络。
+          将全球供应链从被动、割裂、脆弱的系统，<br class="hidden md:block" />转变为可预测、可重构、具备韧性的智能网络。
         </p>
-        <RouterLink to="/smart-procurement" class="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/30 text-lg hover:scale-105 duration-300">
-          探索解决方案 <ArrowRight class="w-5 h-5" />
+        <RouterLink to="/smart-procurement"
+          class="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/30 text-lg hover:scale-105 duration-300">
+          探索解决方案
+          <ArrowRight class="w-5 h-5" />
         </RouterLink>
       </div>
     </section>
 
     <!-- ===== Pillars ===== -->
-    <section class="py-20 px-6 max-w-7xl mx-auto mb-16">
+    <section class="py-20 px-6 w-[85%] mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-slate-200">
-        <div
-          v-for="(pillar, idx) in PILLARS"
-          :key="idx"
-          v-motion
-          :initial="{ opacity: 0, y: 30 }"
-          :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: idx * 100 } }"
-          :visible-once="true"
-          class="pt-12 md:pt-0 md:px-12 flex flex-col items-center text-center group"
-        >
-          <div class="w-16 h-16 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center mb-6 text-slate-900 group-hover:scale-110 group-hover:bg-blue-50 group-hover:text-blue-600 transition-all duration-300">
+        <div v-for="(pillar, idx) in PILLARS" :key="idx" v-motion :initial="{ opacity: 0, y: 30 }"
+          :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: idx * 100 } }" :visible-once="true"
+          class="pt-12 md:pt-0 md:px-12 flex flex-col items-center text-center group">
+          <div
+            class="w-16 h-16 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center mb-6 text-slate-900 group-hover:scale-110 group-hover:bg-blue-50 group-hover:text-blue-600 transition-all duration-300">
             <component :is="pillar.icon" class="w-8 h-8" />
           </div>
           <h3 class="text-2xl font-semibold mb-4 text-slate-900">{{ pillar.title }}</h3>
@@ -157,24 +140,19 @@
         </div>
 
         <div class="relative">
-          <div
-            ref="carouselRef"
+          <div ref="carouselRef"
             class="flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-12 pt-4 px-4 -mx-4"
-            style="scrollbar-width: none; ms-overflow-style: none;"
-          >
-            <div
-              v-for="(cap, idx) in CAPABILITIES"
-              :key="idx"
-              class="snap-center shrink-0 w-[85vw] md:w-[400px] h-[500px] relative rounded-[2rem] overflow-hidden group cursor-pointer"
-            >
+            style="scrollbar-width: none; ms-overflow-style: none;">
+            <div v-for="(cap, idx) in CAPABILITIES" :key="idx"
+              class="snap-center shrink-0 w-[85vw] md:w-[400px] h-[500px] relative rounded-[2rem] overflow-hidden group cursor-pointer">
               <RouterLink :to="cap.link" class="block w-full h-full">
-                <ImageWithFallback
-                  :src="cap.img"
-                  :alt="cap.title"
-                  class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent transition-opacity group-hover:from-slate-900"></div>
-                <div class="absolute bottom-0 left-0 p-8 w-full text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                <ImageWithFallback :src="cap.img" :alt="cap.title"
+                  class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent transition-opacity group-hover:from-slate-900">
+                </div>
+                <div
+                  class="absolute bottom-0 left-0 p-8 w-full text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                   <h3 class="text-3xl font-semibold mb-4">{{ cap.title }}</h3>
                   <ul class="space-y-3 opacity-80 group-hover:opacity-100 transition-opacity">
                     <li v-for="(bullet, i) in cap.bullets" :key="i" class="flex items-start text-sm font-light">
@@ -188,16 +166,12 @@
           </div>
 
           <div class="flex items-center justify-center gap-4 mt-8">
-            <button
-              @click="scrollLeft"
-              class="w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-colors shadow-sm"
-            >
+            <button @click="scrollLeft"
+              class="w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-colors shadow-sm">
               <ChevronLeft class="w-5 h-5" />
             </button>
-            <button
-              @click="scrollRight"
-              class="w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-colors shadow-sm"
-            >
+            <button @click="scrollRight"
+              class="w-12 h-12 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-colors shadow-sm">
               <ChevronRight class="w-5 h-5" />
             </button>
           </div>
@@ -206,16 +180,10 @@
     </section>
 
     <!-- ===== Stats ===== -->
-    <section class="py-20 px-6 max-w-7xl mx-auto">
+    <section class="py-20 px-6 w-full mx-auto">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-6 text-center divide-x divide-slate-200/50">
-        <div
-          v-for="(stat, idx) in STATS"
-          :key="idx"
-          v-motion
-          :initial="{ opacity: 0, scale: 0.9 }"
-          :visible="{ opacity: 1, scale: 1, transition: { duration: 500, delay: idx * 100 } }"
-          :visible-once="true"
-        >
+        <div v-for="(stat, idx) in STATS" :key="idx" v-motion :initial="{ opacity: 0, scale: 0.9 }"
+          :visible="{ opacity: 1, scale: 1, transition: { duration: 500, delay: idx * 100 } }" :visible-once="true">
           <div class="text-4xl md:text-5xl font-semibold text-slate-900 mb-2">{{ stat.num }}</div>
           <div class="text-sm font-medium text-slate-500 uppercase tracking-wider">{{ stat.label }}</div>
         </div>
@@ -227,17 +195,14 @@
 
     <!-- ===== CTA ===== -->
     <section class="py-32 px-6 text-center">
-      <div
-        v-motion
-        :initial="{ opacity: 0, y: 30 }"
-        :visible="{ opacity: 1, y: 0, transition: { duration: 600 } }"
-        :visible-once="true"
-        class="max-w-3xl mx-auto"
-      >
+      <div v-motion :initial="{ opacity: 0, y: 30 }" :visible="{ opacity: 1, y: 0, transition: { duration: 600 } }"
+        :visible-once="true" class="max-w-3xl mx-auto">
         <h2 class="text-4xl md:text-5xl font-semibold text-slate-900 mb-6 tracking-tight">加入全球供应链大平台</h2>
         <p class="text-xl text-slate-500 font-light mb-10">赋能地方资源 · 连接全球市场</p>
-        <RouterLink to="/join" class="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-slate-900 text-white font-medium text-lg hover:bg-slate-800 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl shadow-slate-900/20">
-          申请加入 <ArrowRight class="w-5 h-5" />
+        <RouterLink to="/join"
+          class="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-slate-900 text-white font-medium text-lg hover:bg-slate-800 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl shadow-slate-900/20">
+          申请加入
+          <ArrowRight class="w-5 h-5" />
         </RouterLink>
       </div>
     </section>
@@ -250,7 +215,7 @@ import { ref, computed, markRaw } from 'vue'
 import { RouterLink } from 'vue-router'
 import {
   ArrowRight, TrendingDown, ShieldCheck, ChevronDown,
-  ChevronLeft, ChevronRight, Cpu, Zap
+  ChevronLeft, ChevronRight, ChevronUp, Cpu, Zap
 } from 'lucide-vue-next'
 import heroVideo from '@/assets/vedio.mp4'
 import ImageWithFallback from '@/components/ImageWithFallback.vue'
@@ -365,8 +330,16 @@ const STATS = [
   { num: "10,000+", label: "成功案例" }
 ]
 
+const crisisSection = ref(null)
 const showAllCrises = ref(false)
 const carouselRef = ref(null)
+
+function toggleCrises() {
+  showAllCrises.value = !showAllCrises.value
+  if (!showAllCrises.value && crisisSection.value) {
+    crisisSection.value.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 
 const visibleCrises = computed(() => showAllCrises.value ? CRISIS_DATA : CRISIS_DATA.slice(0, 3))
 
@@ -378,18 +351,3 @@ function scrollRight() {
   carouselRef.value?.scrollBy({ left: 400, behavior: 'smooth' })
 }
 </script>
-
-<style scoped>
-.crisis-enter-active,
-.crisis-leave-active {
-  transition: all 0.5s ease;
-}
-.crisis-enter-from,
-.crisis-leave-to {
-  opacity: 0;
-  transform: scale(0.95);
-}
-.crisis-move {
-  transition: transform 0.5s ease;
-}
-</style>
