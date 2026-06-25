@@ -6,30 +6,23 @@
         <img
           src="https://images.unsplash.com/photo-1710438399422-2fca27686bcd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxibGFjayUyMGx1eHVyeSUyMGFic3RyYWN0JTIwYmFja2dyb3VuZCUyMGZsdWlkfGVufDF8fHx8MTc4MjI4NzcwMHww&ixlib=rb-4.1.0&q=80&w=2000"
           alt="Global SCM Network"
-          class="w-full h-full object-cover object-center scale-105 animate-[pulse_20s_ease-in-out_infinite_alternate] opacity-60"
-        />
+          class="w-full h-full object-cover object-center scale-105 animate-[pulse_20s_ease-in-out_infinite_alternate] opacity-60" />
         <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/80"></div>
       </div>
 
       <div class="relative z-10 max-w-5xl mx-auto px-6 text-center mt-16">
-        <h1
-          v-motion
-          :initial="{ opacity: 0, y: 30 }"
+        <h1 v-motion :initial="{ opacity: 0, y: 30 }"
           :enter="{ opacity: 1, y: 0, transition: { duration: 800, delay: 100, ease: [0.16, 1, 0.3, 1] } }"
-          class="text-6xl md:text-8xl lg:text-[7rem] font-semibold tracking-tight text-white leading-[1.05] mb-8"
-        >
+          class="text-6xl md:text-8xl lg:text-[7rem] font-semibold tracking-tight text-white leading-[1.05] mb-8">
           寻源全球<br />
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-emerald-200">
             决策先人一步
           </span>
         </h1>
 
-        <p
-          v-motion
-          :initial="{ opacity: 0, y: 30 }"
+        <p v-motion :initial="{ opacity: 0, y: 30 }"
           :enter="{ opacity: 1, y: 0, transition: { duration: 800, delay: 200, ease: [0.16, 1, 0.3, 1] } }"
-          class="text-xl md:text-2xl text-white/80 font-light max-w-3xl mx-auto leading-relaxed mb-12"
-        >
+          class="text-xl md:text-2xl text-white/80 font-light max-w-3xl mx-auto leading-relaxed mb-12">
           用 AI 构建全球供应商知识图谱与动态定价中枢，打破信息孤岛，构建强韧供应链体系
         </p>
       </div>
@@ -46,15 +39,9 @@
         </div>
 
         <div class="space-y-12">
-          <div
-            v-for="(stage, index) in pipelineStages"
-            :key="stage.id"
-            v-motion
-            :initial="{ opacity: 0, y: 40 }"
-            :visible="{ opacity: 1, y: 0, transition: { duration: 800, ease: [0.16, 1, 0.3, 1] } }"
-            :visible-once="true"
-            :class="['group relative bg-white rounded-[2.5rem] p-8 md:p-12 overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 flex flex-col items-center gap-12', index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row']"
-          >
+          <div v-for="(stage, index) in pipelineStages" :key="stage.id" v-motion :initial="{ opacity: 0, y: 40 }"
+            :visible="{ opacity: 1, y: 0, transition: { duration: 800, ease: [0.16, 1, 0.3, 1] } }" :visible-once="true"
+            :class="['group relative bg-white rounded-[2.5rem] p-8 md:p-12 overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 flex flex-col items-center gap-12', index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row']">
             <div class="flex-1 space-y-6 relative z-10 w-full">
               <div class="flex items-center space-x-4 mb-8">
                 <div class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center">
@@ -79,11 +66,8 @@
             </div>
 
             <div class="flex-1 w-full relative h-[300px] md:h-[400px] rounded-[2rem] overflow-hidden">
-              <img
-                :src="stage.image"
-                :alt="stage.title"
-                class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
-              />
+              <img :src="stage.image" :alt="stage.title"
+                class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
             </div>
           </div>
         </div>
@@ -97,24 +81,25 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-[280px]">
-          <div
-            v-for="(cap, idx) in coreCapabilities"
-            :key="idx"
-            v-motion
-            :initial="{ opacity: 0, y: 30 }"
+          <div v-for="(cap, idx) in coreCapabilities" :key="idx" v-motion :initial="{ opacity: 0, y: 30 }"
             :visible="{ opacity: 1, y: 0, transition: { duration: 600, delay: idx * 100, ease: [0.16, 1, 0.3, 1] } }"
             :visible-once="true"
-            :class="['group relative rounded-[2.5rem] p-10 overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 cursor-pointer', idx === 0 || idx === 3 ? 'bg-slate-900 text-white' : 'bg-white text-slate-900']"
-          >
-            <div v-if="idx === 0 || idx === 3" class="absolute -top-20 -right-20 w-64 h-64 bg-blue-500/20 blur-[60px] rounded-full group-hover:bg-blue-500/30 transition-colors duration-500"></div>
+            :class="['group relative rounded-[2.5rem] p-10 overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 cursor-pointer', idx === 0 || idx === 3 ? 'bg-slate-900 text-white' : 'bg-white text-slate-900']">
+            <div v-if="idx === 0 || idx === 3"
+              class="absolute -top-20 -right-20 w-64 h-64 bg-blue-500/20 blur-[60px] rounded-full group-hover:bg-blue-500/30 transition-colors duration-500">
+            </div>
 
             <div class="relative z-10 flex flex-col h-full justify-between">
-              <div :class="['w-14 h-14 rounded-2xl flex items-center justify-center', idx === 0 || idx === 3 ? 'bg-white/10 text-white backdrop-blur-md' : 'bg-blue-50 text-blue-600']">
+              <div
+                :class="['w-14 h-14 rounded-2xl flex items-center justify-center', idx === 0 || idx === 3 ? 'bg-white/10 text-white backdrop-blur-md' : 'bg-blue-50 text-blue-600']">
                 <component :is="cap.icon" class="w-7 h-7" />
               </div>
               <div>
-                <h3 :class="['text-2xl font-semibold mb-3', idx === 0 || idx === 3 ? 'text-white' : 'text-slate-900']">{{ cap.title }}</h3>
-                <p :class="['font-light leading-relaxed text-lg', idx === 0 || idx === 3 ? 'text-slate-300' : 'text-slate-500']">{{ cap.description }}</p>
+                <h3 :class="['text-2xl font-semibold mb-3', idx === 0 || idx === 3 ? 'text-white' : 'text-slate-900']">
+                  {{ cap.title }}</h3>
+                <p
+                  :class="['font-light leading-relaxed text-lg', idx === 0 || idx === 3 ? 'text-slate-300' : 'text-slate-500']">
+                  {{ cap.description }}</p>
               </div>
             </div>
           </div>
@@ -126,13 +111,9 @@
         <div class="bg-white rounded-[3rem] p-12 md:p-20 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
           <div class="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8 divide-x divide-slate-100">
             <div v-for="(stat, idx) in stats" :key="idx" class="text-center px-4">
-              <div
-                v-motion
-                :initial="{ opacity: 0, scale: 0.9 }"
+              <div v-motion :initial="{ opacity: 0, scale: 0.9 }"
                 :visible="{ opacity: 1, scale: 1, transition: { duration: 600, delay: idx * 100, ease: [0.16, 1, 0.3, 1] } }"
-                :visible-once="true"
-                class="text-5xl md:text-6xl font-semibold text-slate-900 mb-4"
-              >
+                :visible-once="true" class="text-5xl md:text-6xl font-semibold text-slate-900 mb-4">
                 {{ stat.value }}
               </div>
               <p class="text-slate-500 text-sm md:text-base font-light">{{ stat.label }}</p>
@@ -150,7 +131,8 @@
           加入全球顶尖企业的行列，用 AI 赋能每一次采购决策。
         </p>
         <div class="flex justify-center pt-6">
-          <button class="px-10 py-5 rounded-full bg-slate-900 text-white font-medium text-lg hover:bg-slate-800 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center group shadow-xl shadow-slate-900/20">
+          <button
+            class="px-10 py-5 rounded-full bg-slate-900 text-white font-medium text-lg hover:bg-slate-800 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center group shadow-xl shadow-slate-900/20">
             申请加入网络
             <ArrowRight class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
           </button>

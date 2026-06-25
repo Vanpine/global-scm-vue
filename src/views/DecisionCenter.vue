@@ -10,14 +10,20 @@
         <div class="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/80 to-[#Fbfbfd]"></div>
       </div>
 
-      <div class="relative z-10 container mx-auto px-6 md:px-12 text-center transform translate-y-[-5%]">
+      <div class="relative z-10 max-w-6xl mx-auto px-6 text-center -mt-20">
         <h1
-          class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-150">
-          决策中枢
+          v-motion
+          :initial="{ opacity: 0, y: 30 }"
+          :enter="{ opacity: 1, y: 0, transition: { duration: 800, delay: 100, ease: [0.16, 1, 0.3, 1] } }"
+          class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-8">
+          数据驱动，决策有据
         </h1>
         <p
-          class="text-xl md:text-3xl text-slate-300 max-w-3xl mx-auto font-light tracking-wide animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
-          自动化决策闭环，数据驱动告别经验拍板
+          v-motion
+          :initial="{ opacity: 0, y: 30 }"
+          :enter="{ opacity: 1, y: 0, transition: { duration: 800, delay: 200, ease: [0.16, 1, 0.3, 1] } }"
+          class="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto font-light leading-relaxed">
+          全平台数据实时汇聚分析，每一次决策都有据可依
         </p>
       </div>
     </section>
@@ -33,6 +39,191 @@
           </div>
           <div class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-1">{{ kpi.value }}</div>
           <div class="text-sm font-medium text-slate-500">{{ kpi.title }}</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== AI Interactive Command Center (New Section) ===== -->
+    <section class="w-full mx-auto px-6 md:px-8 py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden">
+      <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=2000')] bg-cover bg-center opacity-10 mix-blend-screen"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-900"></div>
+      
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="text-center mb-16">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-semibold mb-6 backdrop-blur-md">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+            </span>
+            LIVE COMMAND CENTER
+          </div>
+          <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">全局可视，一键指挥</h2>
+          <p class="text-xl text-slate-400 font-light max-w-3xl mx-auto">
+            将散落在 ERP、CRM、物流系统中的海量数据，转化为直观的全局作战地图。支持自然语言交互，让供应链指挥像对话一样简单。
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <!-- Left: Chat/Command Interface -->
+          <div class="lg:col-span-4 bg-white/5 border border-white/10 rounded-[2rem] p-6 backdrop-blur-xl flex flex-col h-[600px]">
+            <div class="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
+              <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center">
+                <Bot class="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <h3 class="font-semibold text-slate-200">AI 供应链助手</h3>
+                <p class="text-xs text-slate-400">在线 · 实时监控中</p>
+              </div>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto space-y-4 pr-2 custom-scrollbar">
+              <div class="bg-white/10 rounded-2xl rounded-tl-none p-4 text-sm text-slate-300 w-11/12">
+                系统检测到红海航线拥堵加剧，预计影响 3 个批次的欧洲交付订单，是否需要查看替代方案？
+              </div>
+              <div class="bg-blue-600 rounded-2xl rounded-tr-none p-4 text-sm text-white w-10/12 self-end ml-auto">
+                列出受影响的订单，并评估空运替代成本。
+              </div>
+              <div class="bg-white/10 rounded-2xl rounded-tl-none p-4 text-sm text-slate-300 w-11/12 space-y-3">
+                <p>已为您生成评估报告：</p>
+                <div class="bg-black/20 rounded-xl p-3 border border-white/5">
+                  <div class="flex justify-between mb-1"><span class="text-slate-400">受影响订单</span><span class="font-medium text-white">PO-202606-882 等 3 笔</span></div>
+                  <div class="flex justify-between mb-1"><span class="text-slate-400">原定海运成本</span><span class="font-medium text-white">$12,500</span></div>
+                  <div class="flex justify-between"><span class="text-slate-400">空运替代成本</span><span class="font-medium text-red-400">$45,000 (+260%)</span></div>
+                </div>
+                <p class="text-xs text-blue-300 cursor-pointer hover:text-blue-200">点击查看详细对比报告 &rarr;</p>
+              </div>
+            </div>
+            
+            <div class="mt-4 pt-4 border-t border-white/10 relative">
+              <input type="text" placeholder="输入指令或询问供应链状态..." class="w-full bg-black/20 border border-white/10 rounded-full py-3 pl-4 pr-12 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors" />
+              <button class="absolute right-2 top-1/2 -translate-y-1/2 mt-2 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center hover:bg-blue-500 transition-colors">
+                <Send class="w-4 h-4 text-white" />
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: Visual Dashboard Mockup -->
+          <div class="lg:col-span-8 bg-black/40 border border-white/10 rounded-[2rem] p-6 backdrop-blur-xl relative overflow-hidden h-[600px] flex flex-col">
+            <div class="flex justify-between items-center mb-6">
+              <h3 class="font-semibold text-slate-200 text-lg">全球物流实时监控网络</h3>
+              <div class="flex gap-2">
+                <span class="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-xs border border-green-500/30">正常 85%</span>
+                <span class="px-3 py-1 rounded-full bg-yellow-500/20 text-yellow-400 text-xs border border-yellow-500/30">延误 12%</span>
+                <span class="px-3 py-1 rounded-full bg-red-500/20 text-red-400 text-xs border border-red-500/30">中断 3%</span>
+              </div>
+            </div>
+            
+            <!-- Map Area -->
+            <div class="flex-1 relative rounded-xl overflow-hidden border border-white/5 bg-slate-900/50">
+              <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="World Map" class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-luminosity" />
+              
+              <!-- Map Nodes & Connections (CSS generated for tech feel) -->
+              <div class="absolute top-[30%] left-[20%] w-3 h-3 bg-blue-500 rounded-full shadow-[0_0_15px_rgba(59,130,246,1)]">
+                <div class="absolute inset-0 bg-blue-400 rounded-full animate-ping opacity-75"></div>
+              </div>
+              <div class="absolute top-[40%] left-[50%] w-4 h-4 bg-emerald-500 rounded-full shadow-[0_0_15px_rgba(16,185,129,1)]">
+                <div class="absolute inset-0 bg-emerald-400 rounded-full animate-ping opacity-75"></div>
+              </div>
+              <div class="absolute top-[35%] right-[25%] w-3 h-3 bg-red-500 rounded-full shadow-[0_0_15px_rgba(239,68,68,1)]">
+                <div class="absolute inset-0 bg-red-400 rounded-full animate-ping opacity-75"></div>
+              </div>
+              
+              <!-- SVG Lines -->
+              <svg class="absolute inset-0 w-full h-full pointer-events-none" style="filter: drop-shadow(0 0 4px rgba(59,130,246,0.5));">
+                <path d="M 20% 30% Q 35% 20% 50% 40%" fill="none" stroke="rgba(59,130,246,0.6)" stroke-width="2" stroke-dasharray="4 4" class="animate-[dash_20s_linear_infinite]" />
+                <path d="M 50% 40% Q 65% 50% 75% 35%" fill="none" stroke="rgba(239,68,68,0.6)" stroke-width="2" stroke-dasharray="4 4" class="animate-[dash_20s_linear_infinite]" />
+              </svg>
+              
+              <!-- Floating Info Panel -->
+              <div class="absolute bottom-4 right-4 bg-black/60 backdrop-blur-md border border-white/10 rounded-xl p-4 w-64">
+                <div class="text-xs text-slate-400 mb-1">当前焦点预警</div>
+                <div class="font-medium text-red-400 mb-2">鹿特丹港拥堵</div>
+                <div class="space-y-2">
+                  <div class="flex justify-between text-xs"><span class="text-slate-400">滞留货船</span><span class="text-white">12 艘</span></div>
+                  <div class="flex justify-between text-xs"><span class="text-slate-400">预计延误</span><span class="text-white">4-6 天</span></div>
+                  <div class="w-full bg-white/10 h-1.5 rounded-full mt-1"><div class="bg-red-500 h-1.5 rounded-full w-[80%]"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Scenario Simulation (New Section) ===== -->
+    <section class="w-full bg-[#0a0f1c] py-32 border-t border-white/5 relative overflow-hidden">
+      <!-- Background Elements -->
+      <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-5 mix-blend-screen"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+      
+      <div class="max-w-[90rem] mx-auto px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-24">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm font-semibold mb-6">
+            <Activity class="w-4 h-4" /> DIGITAL TWIN SIMULATION
+          </div>
+          <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">沙盘推演，未雨绸缪</h2>
+          <p class="text-xl text-slate-400 font-light max-w-2xl mx-auto">
+            在真实风险发生前，通过数字孪生技术进行供应链压力测试与预案演练。
+          </p>
+        </div>
+
+        <!-- Horizontal Scroll / Carousel Layout for Scenarios -->
+        <div class="flex gap-6 overflow-x-auto pb-12 pt-4 snap-x snap-mandatory hide-scrollbar" style="scrollbar-width: none; ms-overflow-style: none;">
+          <div v-for="(scenario, idx) in scenarios" :key="idx" 
+            v-motion
+            :initial="{ opacity: 0, scale: 0.95 }"
+            :visible="{ opacity: 1, scale: 1, transition: { duration: 800, delay: idx * 150, ease: [0.16, 1, 0.3, 1] } }"
+            :visible-once="true"
+            class="snap-center shrink-0 w-[85vw] md:w-[500px] relative group"
+          >
+            <!-- Card Container -->
+            <div class="h-full bg-white/5 border border-white/10 rounded-[2.5rem] p-8 backdrop-blur-xl hover:bg-white/10 transition-colors duration-500 flex flex-col">
+              
+              <!-- Top Section: Visual / Image -->
+              <div class="relative w-full h-48 rounded-2xl overflow-hidden mb-8 border border-white/10">
+                <img :src="scenario.image" :alt="scenario.title" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 mix-blend-luminosity group-hover:mix-blend-normal" />
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0a0f1c] to-transparent"></div>
+                
+                <!-- Floating Icon -->
+                <div class="absolute bottom-4 left-4 w-12 h-12 rounded-xl bg-indigo-600/80 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-lg">
+                  <component :is="scenario.icon" class="w-6 h-6 text-white" />
+                </div>
+                
+                <!-- Simulation Status Badge -->
+                <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center gap-2">
+                  <div class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></div>
+                  <span class="text-xs font-medium text-slate-300">Ready to Test</span>
+                </div>
+              </div>
+
+              <!-- Content Section -->
+              <div class="flex-1 flex flex-col">
+                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors">{{ scenario.title }}</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-1">{{ scenario.desc }}</p>
+                
+                <!-- Outputs Section (Terminal Style) -->
+                <div class="bg-black/40 rounded-2xl p-5 border border-white/5 font-mono">
+                  <div class="text-xs text-indigo-400 mb-3 flex items-center gap-2">
+                    <Zap class="w-3 h-3" /> EXPECTED_OUTPUTS
+                  </div>
+                  <ul class="space-y-3">
+                    <li v-for="(item, i) in scenario.outputs" :key="i" class="flex items-start text-sm text-slate-300">
+                      <span class="text-emerald-500 mr-2 mt-0.5">❯</span>
+                      {{ item }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <!-- Hover Glow Effect -->
+              <div class="absolute inset-0 rounded-[2.5rem] border-2 border-indigo-500/0 group-hover:border-indigo-500/30 transition-colors duration-500 pointer-events-none"></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Scroll Hint -->
+        <div class="flex justify-center mt-8 text-slate-500 text-sm items-center gap-2">
+          <ArrowRight class="w-4 h-4 animate-bounce-x" /> 向右滑动查看更多推演场景
         </div>
       </div>
     </section>
@@ -254,7 +445,7 @@ import { markRaw } from 'vue'
 import {
   BarChart3, TrendingUp, AlertTriangle, PackageSearch,
   ShoppingCart, Factory, ArrowRight, ShieldAlert, Target,
-  CheckCircle2
+  CheckCircle2, Bot, Send, Globe
 } from 'lucide-vue-next'
 import ImageWithFallback from '@/components/ImageWithFallback.vue'
 
@@ -263,5 +454,29 @@ const kpis = [
   { title: "预测精度改善", value: "95.8%", icon: markRaw(Target) },
   { title: "补货效率提升", value: "4x", icon: markRaw(ShoppingCart) },
   { title: "排产优化节省", value: "-45%", icon: markRaw(Factory) }
+]
+
+const scenarios = [
+  {
+    title: "地缘政治冲突模拟",
+    desc: "模拟特定海峡封锁或关税突增对全局交付成本与时效的影响，提前锁定替代产能。",
+    icon: markRaw(Globe),
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+    outputs: ["航线重路由方案", "关税成本对冲策略", "备用供应商激活清单"]
+  },
+  {
+    title: "极端天气灾害推演",
+    desc: "结合全球气象数据，预测台风、洪涝对关键港口及核心物料产区的破坏程度。",
+    icon: markRaw(AlertTriangle),
+    image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80",
+    outputs: ["安全库存动态调拨", "受灾节点订单转移", "物流延误客户预警"]
+  },
+  {
+    title: "需求暴增/骤降测试",
+    desc: "模拟大促爆单或黑天鹅事件导致的需求断崖，测试当前产能弹性和库存缓冲能力。",
+    icon: markRaw(TrendingUp),
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    outputs: ["产能瓶颈定位", "牛鞭效应抑制方案", "现金流压力测试报告"]
+  }
 ]
 </script>

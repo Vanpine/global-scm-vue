@@ -3,55 +3,33 @@
     <!-- Hero -->
     <section class="relative h-screen min-h-[800px] w-full flex items-center justify-center overflow-hidden">
       <div class="absolute inset-0 z-0">
-        <img
-          :src="IMAGES.hero"
-          alt="Global Logistics Network"
-          class="w-full h-full object-cover object-center scale-105 animate-[pulse_20s_ease-in-out_infinite_alternate]"
-        />
+        <img :src="IMAGES.hero" alt="Global Logistics Network"
+          class="w-full h-full object-cover object-center scale-105 animate-[pulse_20s_ease-in-out_infinite_alternate]" />
         <div class="absolute inset-0 bg-gradient-to-b from-[#0a0d16]/80 via-[#0a0d16]/60 to-[#0a0d16]"></div>
       </div>
 
-      <div class="relative z-10 max-w-5xl mx-auto px-6 text-center mt-20">
-        <h1
-          v-motion
-          :initial="{ opacity: 0, y: 30 }"
+      <div class="relative z-10 max-w-6xl mx-auto px-6 text-center -mt-20">
+        <h1 v-motion :initial="{ opacity: 0, y: 30 }"
           :enter="{ opacity: 1, y: 0, transition: { duration: 800, delay: 100, ease: [0.16, 1, 0.3, 1] } }"
-          class="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-white leading-[1.1] mb-8"
-        >
-          全球物流<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">控制塔</span>
+          class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.1] mb-8">
+          全程可视，交付无忧
         </h1>
 
-        <p
-          v-motion
-          :initial="{ opacity: 0, y: 30 }"
+        <p v-motion :initial="{ opacity: 0, y: 30 }"
           :enter="{ opacity: 1, y: 0, transition: { duration: 800, delay: 200, ease: [0.16, 1, 0.3, 1] } }"
-          class="text-xl md:text-2xl text-slate-300 font-light max-w-3xl mx-auto leading-relaxed"
-        >
-          全链路数字孪生预见异常，化被动等待为<span class="text-white font-medium">主动掌控</span>
+          class="text-xl md:text-2xl text-slate-300 font-light max-w-3xl mx-auto leading-relaxed">
+          数字孪生 + 实时预警，让每一票货都在视线之内
         </p>
-      </div>
-
-      <div
-        v-motion
-        :initial="{ opacity: 0 }"
-        :enter="{ opacity: 1, transition: { delay: 1000, duration: 1000 } }"
-        class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50"
-      >
-        <span class="text-xs uppercase tracking-widest">Scroll to explore</span>
-        <ChevronDown class="w-5 h-5 animate-bounce" />
       </div>
     </section>
 
     <!-- KPI Stats -->
     <section class="relative z-20 -mt-24 w-full mx-auto px-6 lg:px-8">
-      <div
-        v-motion
-        :initial="{ opacity: 0, y: 40 }"
-        :visible="{ opacity: 1, y: 0, transition: { duration: 800, ease: [0.16, 1, 0.3, 1] } }"
-        :visible-once="true"
-        class="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[2rem] p-8 md:p-12 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/10"
-      >
-        <div v-for="(stat, idx) in STATS" :key="idx" :class="['text-center px-4', idx % 2 === 0 ? 'border-l-0 md:border-l' : '', idx === 0 ? 'border-l-0' : '']">
+      <div v-motion :initial="{ opacity: 0, y: 40 }"
+        :visible="{ opacity: 1, y: 0, transition: { duration: 800, ease: [0.16, 1, 0.3, 1] } }" :visible-once="true"
+        class="bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[2rem] p-8 md:p-12 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/10">
+        <div v-for="(stat, idx) in STATS" :key="idx"
+          :class="['text-center px-4', idx % 2 === 0 ? 'border-l-0 md:border-l' : '', idx === 0 ? 'border-l-0' : '']">
           <div class="text-4xl md:text-6xl font-light text-white mb-2 tracking-tight">{{ stat.value }}</div>
           <div class="text-slate-300 font-medium text-sm md:text-base tracking-wide mb-1">{{ stat.label }}</div>
           <div class="text-slate-500 text-xs uppercase tracking-wider">{{ stat.sub }}</div>
@@ -62,15 +40,9 @@
     <!-- Capabilities Zig-Zag -->
     <section class="py-32 overflow-hidden bg-[#fafafa]">
       <div class="w-[85%] mx-auto px-6 lg:px-8 space-y-32">
-        <div
-          v-for="cap in CAPABILITIES"
-          :key="cap.id"
-          v-motion
-          :initial="{ opacity: 0, y: 50 }"
-          :visible="{ opacity: 1, y: 0, transition: { duration: 800, ease: [0.16, 1, 0.3, 1] } }"
-          :visible-once="true"
-          :class="['flex flex-col lg:flex-row items-center gap-12 lg:gap-24', cap.reverse ? 'lg:flex-row-reverse' : '']"
-        >
+        <div v-for="cap in CAPABILITIES" :key="cap.id" v-motion :initial="{ opacity: 0, y: 50 }"
+          :visible="{ opacity: 1, y: 0, transition: { duration: 800, ease: [0.16, 1, 0.3, 1] } }" :visible-once="true"
+          :class="['flex flex-col lg:flex-row items-center gap-12 lg:gap-24', cap.reverse ? 'lg:flex-row-reverse' : '']">
           <div class="flex-1 space-y-8 w-full">
             <div class="flex items-center space-x-4">
               <div class="text-sm font-bold text-slate-400 tracking-widest uppercase">Capability</div>
@@ -80,27 +52,28 @@
 
             <div>
               <h2 class="text-3xl md:text-5xl font-semibold text-slate-900 tracking-tight mb-4">{{ cap.title }}</h2>
-              <div class="inline-flex items-center px-3 py-1 rounded-md bg-slate-100 text-slate-600 font-medium text-sm tracking-wide">
+              <div
+                class="inline-flex items-center px-3 py-1 rounded-md bg-slate-100 text-slate-600 font-medium text-sm tracking-wide">
                 侧重：{{ cap.tagline }}
               </div>
             </div>
 
             <p class="text-lg md:text-xl text-slate-500 font-light leading-relaxed">{{ cap.description }}</p>
 
-            <div class="pt-4 flex items-center gap-4 text-blue-600 font-medium hover:text-blue-700 cursor-pointer group w-fit transition-colors">
+            <div
+              class="pt-4 flex items-center gap-4 text-blue-600 font-medium hover:text-blue-700 cursor-pointer group w-fit transition-colors">
               探索技术细节
               <ArrowRight class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
 
           <div class="flex-1 w-full">
-            <div class="relative rounded-[2.5rem] overflow-hidden aspect-[4/3] bg-slate-200 shadow-2xl shadow-slate-900/10 group transform-gpu">
-              <img
-                :src="cap.image"
-                :alt="cap.title"
-                class="object-cover w-full h-full transform transition-transform duration-1000 group-hover:scale-105"
-              />
-              <div :class="['absolute bottom-6 md:bottom-10 bg-white/90 backdrop-blur-xl p-4 md:p-6 rounded-2xl shadow-xl flex items-center gap-4 max-w-[280px]', cap.reverse ? 'left-6 md:left-10' : 'right-6 md:right-10']">
+            <div
+              class="relative rounded-[2.5rem] overflow-hidden aspect-[4/3] bg-slate-200 shadow-2xl shadow-slate-900/10 group transform-gpu">
+              <img :src="cap.image" :alt="cap.title"
+                class="object-cover w-full h-full transform transition-transform duration-1000 group-hover:scale-105" />
+              <div
+                :class="['absolute bottom-6 md:bottom-10 bg-white/90 backdrop-blur-xl p-4 md:p-6 rounded-2xl shadow-xl flex items-center gap-4 max-w-[280px]', cap.reverse ? 'left-6 md:left-10' : 'right-6 md:right-10']">
                 <div class="bg-white p-3 rounded-xl shadow-sm">
                   <component :is="cap.icon" class="w-8 h-8" :class="cap.iconColor" />
                 </div>
@@ -117,12 +90,17 @@
 
     <!-- Black Box → White Box -->
     <section class="relative py-32 bg-[#0a0d16] text-white overflow-hidden">
-      <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none mix-blend-screen"></div>
-      <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyan-600/10 blur-[120px] rounded-full pointer-events-none mix-blend-screen"></div>
+      <div
+        class="absolute top-0 right-0 w-[800px] h-[800px] bg-blue-600/10 blur-[150px] rounded-full pointer-events-none mix-blend-screen">
+      </div>
+      <div
+        class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyan-600/10 blur-[120px] rounded-full pointer-events-none mix-blend-screen">
+      </div>
 
       <div class="max-w-6xl mx-auto px-6 relative z-10">
         <div class="text-center max-w-5xl mx-auto mb-20 space-y-12">
-          <div class="w-20 h-20 mx-auto bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-3xl flex items-center justify-center shadow-[0_0_50px_rgba(56,189,248,0.3)] mb-8 transform -rotate-3 hover:rotate-0 transition-transform duration-500">
+          <div
+            class="w-20 h-20 mx-auto bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-3xl flex items-center justify-center shadow-[0_0_50px_rgba(56,189,248,0.3)] mb-8 transform -rotate-3 hover:rotate-0 transition-transform duration-500">
             <ShieldCheck class="w-10 h-10 text-white" />
           </div>
 
@@ -132,8 +110,11 @@
 
           <div class="pt-10 pb-4 relative">
             <div class="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-cyan-500/0 blur-2xl"></div>
-            <h3 class="relative text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.3] md:leading-[1.2]">
-              让交付从<span class="text-slate-600 line-through decoration-red-500/60 decoration-4 px-3 relative">黑盒<div class="absolute inset-0 bg-red-500/10 blur-md -z-10"></div></span>变<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-500 px-3 drop-shadow-[0_0_20px_rgba(34,211,238,0.4)]">白盒</span>
+            <h3
+              class="relative text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.3] md:leading-[1.2]">
+              让交付从<span class="text-slate-600 line-through decoration-red-500/60 decoration-4 px-3 relative">黑盒<div
+                  class="absolute inset-0 bg-red-500/10 blur-md -z-10"></div></span>变<span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-500 px-3 drop-shadow-[0_0_20px_rgba(34,211,238,0.4)]">白盒</span>
             </h3>
             <p class="text-2xl md:text-3xl text-slate-400 font-light tracking-wide">
               从事后被动补救，走向<span class="text-white font-medium border-b-2 border-cyan-400 pb-1">事前主动管控</span>
@@ -143,49 +124,66 @@
 
         <!-- Comparison Panels -->
         <div class="max-w-5xl mx-auto mb-24 relative">
-          <div class="absolute inset-0 bg-gradient-to-r from-slate-800 to-blue-900/50 rounded-[2.5rem] blur-xl opacity-60"></div>
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-slate-800 to-blue-900/50 rounded-[2.5rem] blur-xl opacity-60">
+          </div>
 
-          <div class="relative bg-[#111524] border border-white/10 rounded-[2.5rem] p-2 md:p-3 backdrop-blur-2xl flex flex-col md:flex-row gap-3">
+          <div
+            class="relative bg-[#111524] border border-white/10 rounded-[2.5rem] p-2 md:p-3 backdrop-blur-2xl flex flex-col md:flex-row gap-3">
             <!-- Black Box -->
-            <div class="flex-1 bg-black/50 rounded-[2rem] p-8 md:p-12 border border-white/5 relative overflow-hidden group">
+            <div
+              class="flex-1 bg-black/50 rounded-[2rem] p-8 md:p-12 border border-white/5 relative overflow-hidden group">
               <div class="text-slate-500 text-sm font-bold uppercase tracking-widest mb-6 flex items-center gap-2">
                 <EyeOff class="w-5 h-5" />
                 Traditional / 过去
               </div>
               <ul class="space-y-8">
                 <li class="flex gap-4">
-                  <div class="mt-1 bg-red-500/10 text-red-400 p-1.5 rounded-full h-fit"><X class="w-4 h-4" /></div>
+                  <div class="mt-1 bg-red-500/10 text-red-400 p-1.5 rounded-full h-fit">
+                    <X class="w-4 h-4" />
+                  </div>
                   <div>
                     <div class="text-slate-300 font-medium mb-1">节点盲区大，轨迹靠人催</div>
-                    <div class="text-slate-500 text-sm leading-relaxed">货物离开工厂后即进入盲区，ETA（预计到达时间）准确率不足 60%，客户反复催问进度导致沟通成本极高。</div>
+                    <div class="text-slate-500 text-sm leading-relaxed">货物离开工厂后即进入盲区，ETA（预计到达时间）准确率不足
+                      60%，客户反复催问进度导致沟通成本极高。</div>
                   </div>
                 </li>
                 <li class="flex gap-4">
-                  <div class="mt-1 bg-red-500/10 text-red-400 p-1.5 rounded-full h-fit"><X class="w-4 h-4" /></div>
+                  <div class="mt-1 bg-red-500/10 text-red-400 p-1.5 rounded-full h-fit">
+                    <X class="w-4 h-4" />
+                  </div>
                   <div>
                     <div class="text-slate-300 font-medium mb-1">异常发现滞后，产生高昂附加费</div>
-                    <div class="text-slate-500 text-sm leading-relaxed">塞港、甩柜、暴风雪等异常发生数日后才获知，经常导致高昂的滞港费（Demurrage）与空箱费（Detention）。</div>
+                    <div class="text-slate-500 text-sm leading-relaxed">
+                      塞港、甩柜、暴风雪等异常发生数日后才获知，经常导致高昂的滞港费（Demurrage）与空箱费（Detention）。</div>
                   </div>
                 </li>
                 <li class="flex gap-4">
-                  <div class="mt-1 bg-red-500/10 text-red-400 p-1.5 rounded-full h-fit"><X class="w-4 h-4" /></div>
+                  <div class="mt-1 bg-red-500/10 text-red-400 p-1.5 rounded-full h-fit">
+                    <X class="w-4 h-4" />
+                  </div>
                   <div>
                     <div class="text-slate-300 font-medium mb-1">人工对账与报关，错漏风险高</div>
-                    <div class="text-slate-500 text-sm leading-relaxed">跨越多个时区与币种，高度依赖人工 Excel 录入单证，极易引发扣关、罚款以及财务坏账的合规危机。</div>
+                    <div class="text-slate-500 text-sm leading-relaxed">跨越多个时区与币种，高度依赖人工 Excel
+                      录入单证，极易引发扣关、罚款以及财务坏账的合规危机。</div>
                   </div>
                 </li>
               </ul>
             </div>
 
             <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-              <div class="w-14 h-14 bg-[#1e243b] border-4 border-[#0a0d16] rounded-full flex items-center justify-center text-blue-400 shadow-2xl">
+              <div
+                class="w-14 h-14 bg-[#1e243b] border-4 border-[#0a0d16] rounded-full flex items-center justify-center text-blue-400 shadow-2xl">
                 <ArrowRight class="w-6 h-6" />
               </div>
             </div>
 
             <!-- White Box -->
-            <div class="flex-1 bg-gradient-to-br from-blue-900/30 to-cyan-900/10 rounded-[2rem] p-8 md:p-12 border border-blue-500/20 relative overflow-hidden group">
-              <div class="absolute inset-0 bg-blue-500/5 mix-blend-overlay group-hover:bg-blue-500/10 transition-colors duration-500"></div>
+            <div
+              class="flex-1 bg-gradient-to-br from-blue-900/30 to-cyan-900/10 rounded-[2rem] p-8 md:p-12 border border-blue-500/20 relative overflow-hidden group">
+              <div
+                class="absolute inset-0 bg-blue-500/5 mix-blend-overlay group-hover:bg-blue-500/10 transition-colors duration-500">
+              </div>
               <div class="relative z-10">
                 <div class="text-cyan-400 text-sm font-bold uppercase tracking-widest mb-6 flex items-center gap-2">
                   <Eye class="w-5 h-5" />
@@ -193,24 +191,33 @@
                 </div>
                 <ul class="space-y-8">
                   <li class="flex gap-4">
-                    <div class="mt-1 bg-cyan-500/20 text-cyan-300 p-1.5 rounded-full h-fit"><Check class="w-4 h-4" /></div>
+                    <div class="mt-1 bg-cyan-500/20 text-cyan-300 p-1.5 rounded-full h-fit">
+                      <Check class="w-4 h-4" />
+                    </div>
                     <div>
                       <div class="text-white font-medium mb-1">全要素数字孪生，ETA 精准度 95%</div>
-                      <div class="text-blue-200/70 text-sm leading-relaxed">聚合全球船司、港区、航司及 IoT 设备 API 数据，实现 SKU 级货品在途的无缝接力与厘米级追踪。</div>
+                      <div class="text-blue-200/70 text-sm leading-relaxed">聚合全球船司、港区、航司及 IoT 设备 API 数据，实现 SKU
+                        级货品在途的无缝接力与厘米级追踪。</div>
                     </div>
                   </li>
                   <li class="flex gap-4">
-                    <div class="mt-1 bg-cyan-500/20 text-cyan-300 p-1.5 rounded-full h-fit"><Check class="w-4 h-4" /></div>
+                    <div class="mt-1 bg-cyan-500/20 text-cyan-300 p-1.5 rounded-full h-fit">
+                      <Check class="w-4 h-4" />
+                    </div>
                     <div>
                       <div class="text-white font-medium mb-1">风险前置感知，异常自动重路由</div>
-                      <div class="text-blue-200/70 text-sm leading-relaxed">融合全球气象雷达与地缘冲突数据源，提前 48 小时预警受阻节点，AI 算法秒级生成最佳替代承运 B 计划。</div>
+                      <div class="text-blue-200/70 text-sm leading-relaxed">融合全球气象雷达与地缘冲突数据源，提前 48 小时预警受阻节点，AI
+                        算法秒级生成最佳替代承运 B 计划。</div>
                     </div>
                   </li>
                   <li class="flex gap-4">
-                    <div class="mt-1 bg-cyan-500/20 text-cyan-300 p-1.5 rounded-full h-fit"><Check class="w-4 h-4" /></div>
+                    <div class="mt-1 bg-cyan-500/20 text-cyan-300 p-1.5 rounded-full h-fit">
+                      <Check class="w-4 h-4" />
+                    </div>
                     <div>
                       <div class="text-white font-medium mb-1">RPA 自动合规与账单秒级核销</div>
-                      <div class="text-blue-200/70 text-sm leading-relaxed">内置最新全球贸易合规与关税规则库自动预审，多源异构费用单据由机器视觉 100% 自动稽核、对账与结算。</div>
+                      <div class="text-blue-200/70 text-sm leading-relaxed">内置最新全球贸易合规与关税规则库自动预审，多源异构费用单据由机器视觉 100%
+                        自动稽核、对账与结算。</div>
                     </div>
                   </li>
                 </ul>
@@ -220,10 +227,12 @@
         </div>
 
         <div class="flex justify-center">
-          <button class="px-10 py-5 rounded-full bg-white text-slate-900 font-bold text-lg hover:bg-slate-100 hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.15)] flex items-center gap-3 group">
+          <button
+            class="px-10 py-5 rounded-full bg-white text-slate-900 font-bold text-lg hover:bg-slate-100 hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.15)] flex items-center gap-3 group">
             <Activity class="w-5 h-5 text-blue-600" />
             开启供应链数字孪生
-            <ArrowRight class="w-5 h-5 ml-1 text-slate-400 group-hover:translate-x-1 group-hover:text-slate-900 transition-all" />
+            <ArrowRight
+              class="w-5 h-5 ml-1 text-slate-400 group-hover:translate-x-1 group-hover:text-slate-900 transition-all" />
           </button>
         </div>
       </div>
@@ -240,8 +249,10 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div v-for="(eco, idx) in ECOSYSTEM" :key="idx" class="bg-[#fafafa] rounded-[2rem] p-8 border border-slate-100 hover:bg-white hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-300 group cursor-pointer">
-            <div :class="['w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300', eco.bgColor, eco.textColor, eco.hoverBg]">
+          <div v-for="(eco, idx) in ECOSYSTEM" :key="idx"
+            class="bg-[#fafafa] rounded-[2rem] p-8 border border-slate-100 hover:bg-white hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] transition-all duration-300 group cursor-pointer">
+            <div
+              :class="['w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300', eco.bgColor, eco.textColor, eco.hoverBg]">
               <component :is="eco.icon" class="w-7 h-7" />
             </div>
             <div class="text-3xl font-light text-slate-900 mb-2">{{ eco.count }}</div>
@@ -257,7 +268,7 @@
 <script setup>
 import { markRaw } from 'vue'
 import {
-  Network, AlertTriangle, FileCheck, Calculator, ChevronDown,
+  Network, AlertTriangle, FileCheck, Calculator,
   ArrowRight, ShieldCheck, Activity, Globe2, Lock, X, Check,
   Eye, EyeOff, Anchor, Plane, Building, Database
 } from 'lucide-vue-next'

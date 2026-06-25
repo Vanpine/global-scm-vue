@@ -104,22 +104,17 @@
         <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
       </div>
       <div class="relative z-10 px-6 max-w-4xl mx-auto text-center">
-        <h2 v-motion 
-          :initial="{ opacity: 0, y: 50, scale: 0.95 }"
+        <h2 v-motion :initial="{ opacity: 0, y: 50, scale: 0.95 }"
           :visible="{ opacity: 1, y: 0, scale: 1, transition: { duration: 1000, ease: [0.16, 1, 0.3, 1] } }"
-          :visible-once="true"
-          class="text-5xl md:text-7xl font-semibold text-white mb-8 tracking-tight drop-shadow-lg">
+          :visible-once="true" class="text-5xl md:text-7xl font-semibold text-white mb-8 tracking-tight drop-shadow-lg">
           AI 重塑全球供应链
         </h2>
-        <p v-motion 
-          :initial="{ opacity: 0, y: 30 }"
+        <p v-motion :initial="{ opacity: 0, y: 30 }"
           :visible="{ opacity: 1, y: 0, transition: { duration: 1000, delay: 200, ease: [0.16, 1, 0.3, 1] } }"
-          :visible-once="true"
-          class="text-xl md:text-2xl text-white font-light leading-relaxed mb-12 drop-shadow-md">
+          :visible-once="true" class="text-xl md:text-2xl text-white font-light leading-relaxed mb-12 drop-shadow-md">
           将全球供应链从被动、割裂、脆弱的系统，<br class="hidden md:block" />转变为可预测、可重构、具备韧性的智能网络。
         </p>
-        <div v-motion 
-          :initial="{ opacity: 0, y: 30 }"
+        <div v-motion :initial="{ opacity: 0, y: 30 }"
           :visible="{ opacity: 1, y: 0, transition: { duration: 1000, delay: 400, ease: [0.16, 1, 0.3, 1] } }"
           :visible-once="true">
           <RouterLink to="/smart-procurement"
@@ -198,30 +193,36 @@
     <!-- ===== Stats ===== -->
     <section class="py-24 px-6 w-full mx-auto bg-white relative overflow-hidden">
       <!-- 装饰性背景元素 -->
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
-      
+      <div
+        class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent">
+      </div>
+
       <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8">
-          <div v-for="(stat, idx) in STATS" :key="idx" v-motion 
-            :initial="{ opacity: 0, y: 30 }"
-            :visible="{ opacity: 1, y: 0, transition: { duration: 800, delay: idx * 150, ease: [0.16, 1, 0.3, 1] } }" 
-            :visible-once="true"
-            class="relative flex flex-col items-center justify-center group">
-            
+          <div v-for="(stat, idx) in STATS" :key="idx" v-motion :initial="{ opacity: 0, y: 30 }"
+            :visible="{ opacity: 1, y: 0, transition: { duration: 800, delay: idx * 150, ease: [0.16, 1, 0.3, 1] } }"
+            :visible-once="true" class="relative flex flex-col items-center justify-center group">
+
             <!-- 分割线 (除了最后一个) -->
-            <div v-if="idx !== STATS.length - 1" class="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-12 bg-slate-200 group-hover:bg-blue-200 transition-colors duration-500"></div>
-            
+            <div v-if="idx !== STATS.length - 1"
+              class="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-12 bg-slate-200 group-hover:bg-blue-200 transition-colors duration-500">
+            </div>
+
             <div class="relative">
               <!-- 数字背景光晕 -->
-              <div class="absolute inset-0 bg-blue-100 blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 rounded-full"></div>
-              
-              <div class="text-5xl md:text-6xl font-bold text-slate-900 mb-3 tracking-tight relative z-10 group-hover:text-blue-600 transition-colors duration-300">
+              <div
+                class="absolute inset-0 bg-blue-100 blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 rounded-full">
+              </div>
+
+              <div
+                class="text-5xl md:text-6xl font-bold text-slate-900 mb-3 tracking-tight relative z-10 group-hover:text-blue-600 transition-colors duration-300">
                 {{ stat.num }}
               </div>
             </div>
-            
+
             <div class="text-sm md:text-base font-medium text-slate-500 tracking-wide flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              <span
+                class="w-2 h-2 rounded-full bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               {{ stat.label }}
             </div>
           </div>
