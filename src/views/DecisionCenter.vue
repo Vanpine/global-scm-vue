@@ -6,17 +6,17 @@
       <div class="absolute inset-0 z-0">
         <ImageWithFallback
           src="https://images.unsplash.com/photo-1644088379091-d574269d422f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGdsb3dpbmclMjBuZXR3b3JrJTIwZGF0YSUyMHN0cmVhbXN8ZW58MXx8fHwxNzgyMjkxNzg2fDA&ixlib=rb-4.1.0&q=80&w=1080"
-          alt="AI Data Streams"
-          class="w-full h-full object-cover"
-        />
+          alt="AI Data Streams" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/80 to-[#Fbfbfd]"></div>
       </div>
 
       <div class="relative z-10 container mx-auto px-6 md:px-12 text-center transform translate-y-[-5%]">
-        <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-150">
+        <h1
+          class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-150">
           决策中枢
         </h1>
-        <p class="text-xl md:text-3xl text-slate-300 max-w-3xl mx-auto font-light tracking-wide animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
+        <p
+          class="text-xl md:text-3xl text-slate-300 max-w-3xl mx-auto font-light tracking-wide animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
           自动化决策闭环，数据驱动告别经验拍板
         </p>
       </div>
@@ -25,12 +25,10 @@
     <!-- ===== KPI Cards Section ===== -->
     <section class="relative z-20 -mt-32 max-w-7xl mx-auto px-6 md:px-8 mb-24">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-        <div
-          v-for="(kpi, idx) in kpis"
-          :key="idx"
-          class="bg-white/70 backdrop-blur-2xl border border-white p-6 rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group"
-        >
-          <div class="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500">
+        <div v-for="(kpi, idx) in kpis" :key="idx"
+          class="bg-white/70 backdrop-blur-2xl border border-white p-6 rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group">
+          <div
+            class="w-10 h-10 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500">
             <component :is="kpi.icon" class="w-5 h-5" />
           </div>
           <div class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-1">{{ kpi.value }}</div>
@@ -49,14 +47,19 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[280px]">
 
         <!-- Card 1: 销量预测 -->
-        <div class="md:col-span-2 row-span-2 group relative overflow-hidden rounded-[2rem] bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-700 ease-out p-8 md:p-12 flex flex-col justify-between">
-          <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-50 to-transparent rounded-full blur-3xl -z-10 opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
+        <div
+          class="md:col-span-2 row-span-2 group relative overflow-hidden rounded-[2rem] bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-700 ease-out p-8 md:p-12 flex flex-col justify-between">
+          <div
+            class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-50 to-transparent rounded-full blur-3xl -z-10 opacity-50 group-hover:opacity-100 transition-opacity duration-700">
+          </div>
 
           <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold mb-6">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold mb-6">
               <TrendingUp class="w-4 h-4" /> 销量预测
             </div>
-            <h3 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
+            <h3
+              class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">
               "下个月能卖多少"<br />决定采购和现金流
             </h3>
             <p class="text-lg text-slate-500 leading-relaxed max-w-lg">
@@ -83,12 +86,16 @@
         </div>
 
         <!-- Card 2: 生产计划优化 -->
-        <div class="md:col-span-1 row-span-2 group relative overflow-hidden rounded-[2rem] bg-slate-900 text-white shadow-xl hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-700 ease-out p-8 md:p-10 flex flex-col">
-          <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080')] bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-700 mix-blend-luminosity"></div>
+        <div
+          class="md:col-span-1 row-span-2 group relative overflow-hidden rounded-[2rem] bg-slate-900 text-white shadow-xl hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-700 ease-out p-8 md:p-10 flex flex-col">
+          <div
+            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080')] bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity duration-700 mix-blend-luminosity">
+          </div>
           <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-slate-900/40"></div>
 
           <div class="relative z-10 flex-1">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-white text-sm font-semibold mb-6 backdrop-blur-md">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-white text-sm font-semibold mb-6 backdrop-blur-md">
               <Factory class="w-4 h-4" /> 生产计划优化
             </div>
             <h3 class="text-2xl md:text-3xl font-bold tracking-tight mb-4">
@@ -122,11 +129,15 @@
         </div>
 
         <!-- Card 3: 库存预测 -->
-        <div class="md:col-span-1 row-span-1 group relative overflow-hidden rounded-[2rem] bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-700 ease-out p-8 flex flex-col justify-center">
-          <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+        <div
+          class="md:col-span-1 row-span-1 group relative overflow-hidden rounded-[2rem] bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-700 ease-out p-8 flex flex-col justify-center">
+          <div
+            class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
             <BarChart3 class="w-6 h-6" />
           </div>
-          <h3 class="text-xl font-bold tracking-tight text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">库存预测</h3>
+          <h3
+            class="text-xl font-bold tracking-tight text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">
+            库存预测</h3>
           <p class="text-sm text-slate-500 leading-relaxed">
             解决库存积压与热销缺货难题。<br />
             <strong class="text-slate-700 font-semibold">SKU级需求感知 → 动态安全库存水位 → 积压/缺货自动预警。</strong>
@@ -134,12 +145,16 @@
         </div>
 
         <!-- Card 4: 补货建议 -->
-        <div class="md:col-span-2 row-span-1 group relative overflow-hidden rounded-[2rem] bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-700 ease-out p-8 flex flex-col md:flex-row items-center gap-8">
+        <div
+          class="md:col-span-2 row-span-1 group relative overflow-hidden rounded-[2rem] bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-700 ease-out p-8 flex flex-col md:flex-row items-center gap-8">
           <div class="flex-1">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-50 text-teal-700 text-sm font-semibold mb-4">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-50 text-teal-700 text-sm font-semibold mb-4">
               <ShoppingCart class="w-4 h-4" /> 补货建议
             </div>
-            <h3 class="text-2xl font-bold tracking-tight text-slate-900 mb-3 group-hover:text-teal-600 transition-colors">自动计算多变量，审核即下单</h3>
+            <h3
+              class="text-2xl font-bold tracking-tight text-slate-900 mb-3 group-hover:text-teal-600 transition-colors">
+              自动计算多变量，审核即下单</h3>
             <p class="text-slate-500 leading-relaxed">
               实时追踪库存状态，综合考虑交期、价格、MOQ（最小起订量）和运费，输出最优补货方案。
             </p>
@@ -169,7 +184,8 @@
         <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-24">
 
           <div class="flex-1">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/20 border border-red-500/30 text-red-300 text-sm font-semibold mb-6">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/20 border border-red-500/30 text-red-300 text-sm font-semibold mb-6">
               <ShieldAlert class="w-4 h-4" /> 核心亮点：内嵌供应风险
             </div>
             <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
@@ -179,7 +195,8 @@
               补货建议和生产排程深度集成供应商断供风险模型。当感知到高风险供应商时，系统自动触发替代方案；若发生物料延迟，立刻重排生产计划并推送备用供应商，确保供应链永不断链。
             </p>
 
-            <button class="flex items-center gap-2 text-white font-medium hover:gap-4 transition-all duration-300 group">
+            <button
+              class="flex items-center gap-2 text-white font-medium hover:gap-4 transition-all duration-300 group">
               <span class="border-b border-white/30 group-hover:border-white pb-1 transition-colors">查看风险感知模型详情</span>
               <ArrowRight class="w-5 h-5" />
             </button>
@@ -191,7 +208,8 @@
                 <h4 class="text-lg font-semibold">实时风险雷达</h4>
                 <div class="flex items-center gap-2">
                   <span class="relative flex h-3 w-3">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                    <span
+                      class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
                   </span>
                   <span class="text-sm font-medium text-red-400">发现异常</span>
@@ -205,8 +223,10 @@
                     <div class="text-sm font-bold text-red-200 mb-1">供应商 A - 交付延迟预警</div>
                     <div class="text-xs text-slate-400 mb-3">受台风影响，预计MCU组件延迟 5 天交付。</div>
                     <div class="flex gap-2">
-                      <button class="text-xs bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded-lg transition-colors font-medium">重排生产计划</button>
-                      <button class="text-xs bg-white/10 hover:bg-white/20 text-white px-3 py-1.5 rounded-lg transition-colors font-medium">启用替代供应商</button>
+                      <button
+                        class="text-xs bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded-lg transition-colors font-medium">重排生产计划</button>
+                      <button
+                        class="text-xs bg-white/10 hover:bg-white/20 text-white px-3 py-1.5 rounded-lg transition-colors font-medium">启用替代供应商</button>
                     </div>
                   </div>
                 </div>

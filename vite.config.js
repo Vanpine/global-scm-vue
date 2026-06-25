@@ -14,4 +14,13 @@ export default defineConfig({
     },
   },
   assetsInclude: ['**/*.svg', '**/*.csv'],
+  server: {
+    proxy: {
+      '/gdacs': {
+        target: 'https://www.gdacs.org',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/gdacs/, '')
+      }
+    }
+  }
 })

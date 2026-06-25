@@ -223,58 +223,7 @@
     </section>
 
     <!-- ===== Risk Map ===== -->
-    <section class="py-32 bg-slate-950 text-white relative">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <div class="text-sm font-bold tracking-widest text-slate-500 mb-4 uppercase">GLOBAL RISK MAP · 全球风险地图</div>
-          <h2 class="text-3xl md:text-4xl font-semibold mb-4 text-white">影响你供应商的外部事件，一个屏幕看清</h2>
-          <p class="text-slate-400 max-w-2xl mx-auto font-light">实时监测地缘冲突、政策变化、港口状态与极端天气，高危区域自动高亮，关联到你的供应商网络。</p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div class="lg:col-span-8 bg-slate-900 rounded-[2.5rem] border border-slate-800 h-[500px] md:h-[600px] relative overflow-hidden flex items-center justify-center">
-            <ImageWithFallback
-              src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80"
-              alt="Digital Map"
-              class="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-screen"
-            />
-
-            <div class="absolute top-1/3 left-1/3 w-4 h-4 bg-red-500 rounded-full shadow-[0_0_20px_rgba(239,68,68,0.8)] animate-ping"></div>
-            <div class="absolute top-1/2 left-2/3 w-3 h-3 bg-amber-500 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.8)] animate-pulse"></div>
-            <div class="absolute bottom-1/3 right-1/4 w-3 h-3 bg-emerald-500 rounded-full shadow-[0_0_15px_rgba(16,185,129,0.8)] animate-pulse"></div>
-
-            <div class="absolute bottom-6 left-6 flex gap-4 text-xs font-medium bg-slate-950/80 backdrop-blur-md px-4 py-2 rounded-full border border-slate-800">
-              <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-red-500"></span> 高危</span>
-              <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-500"></span> 关注</span>
-              <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> 正常</span>
-            </div>
-          </div>
-
-          <div class="lg:col-span-4 bg-white rounded-[2.5rem] p-8 h-full">
-            <div class="flex items-center gap-2 text-slate-900 font-semibold mb-6">
-              <Globe class="w-5 h-5 text-blue-600" />
-              <h4>全球供应链要闻</h4>
-            </div>
-            <div class="space-y-4 max-h-[480px] overflow-y-auto pr-2 hide-scrollbar">
-              <RouterLink v-for="(news, idx) in NEWS_FEED" :key="idx" to="/" class="block group">
-                <div class="p-4 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-white hover:border-slate-200 hover:shadow-md transition-all">
-                  <span :class="['inline-block px-2.5 py-1 rounded-md text-[10px] font-semibold border mb-2', news.color]">
-                    {{ news.tag }}
-                  </span>
-                  <h5 class="font-medium text-slate-900 text-sm leading-relaxed mb-2 group-hover:text-blue-600 transition-colors">
-                    {{ news.title }}
-                  </h5>
-                  <div class="text-xs text-slate-400">{{ news.meta }}</div>
-                </div>
-              </RouterLink>
-            </div>
-            <RouterLink to="/" class="block mt-6 text-center text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors">
-              查看全部要闻 &rarr;
-            </RouterLink>
-          </div>
-        </div>
-      </div>
-    </section>
+    <RiskDashboard />
 
     <!-- ===== CTA ===== -->
     <section class="py-32 px-6 text-center">
@@ -301,10 +250,11 @@ import { ref, computed, markRaw } from 'vue'
 import { RouterLink } from 'vue-router'
 import {
   ArrowRight, TrendingDown, ShieldCheck, ChevronDown,
-  ChevronLeft, ChevronRight, Cpu, Zap, Globe
+  ChevronLeft, ChevronRight, Cpu, Zap
 } from 'lucide-vue-next'
 import heroVideo from '@/assets/vedio.mp4'
 import ImageWithFallback from '@/components/ImageWithFallback.vue'
+import RiskDashboard from '@/components/home/RiskDashboard.vue'
 
 const CRISIS_DATA = [
   {
@@ -413,15 +363,6 @@ const STATS = [
   { num: "50+", label: "服务国家和地区" },
   { num: "17", label: "专业服务年限" },
   { num: "10,000+", label: "成功案例" }
-]
-
-const NEWS_FEED = [
-  { tag: "交通物流", color: "text-blue-500 bg-blue-50 border-blue-100", title: "红海危机延续：主力班轮默认绕行好望角", meta: "Reuters · 海运 · 今日" },
-  { tag: "能源与环境", color: "text-amber-600 bg-amber-50 border-amber-100", title: "霍尔木兹海峡近乎关闭，全球两成石油咽喉中断", meta: "Bloomberg · 能源 · 2 小时前" },
-  { tag: "贸易政策", color: "text-purple-600 bg-purple-50 border-purple-100", title: "美国 Section 232 金属关税扩围至铜，最高 50%", meta: "Baker Tilly · 今日" },
-  { tag: "贸易政策", color: "text-purple-600 bg-purple-50 border-purple-100", title: "中国稀土管制悬顶：11 月 10 日大限将至", meta: "TechTimes · 3 小时前" },
-  { tag: "地缘冲突", color: "text-red-500 bg-red-50 border-red-100", title: "黑海出口走廊再遇袭，俄无人机击中三艘外籍商船", meta: "Modern Diplomacy · 5 小时前" },
-  { tag: "能源与环境", color: "text-amber-600 bg-amber-50 border-amber-100", title: "欧盟 CBAM 碳边境机制进入正式期，进口商须清缴碳证", meta: "European Commission · 2 天前" },
 ]
 
 const showAllCrises = ref(false)

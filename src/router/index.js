@@ -5,6 +5,7 @@ import TrustedDelivery from '@/views/TrustedDelivery.vue'
 import SmartProcurement from '@/views/SmartProcurement.vue'
 import DecisionCenter from '@/views/DecisionCenter.vue'
 import JoinUs from '@/views/JoinUs.vue'
+import Intel from '@/views/Intel.vue'
 
 const routes = [
   {
@@ -16,6 +17,7 @@ const routes = [
       { path: 'smart-procurement', name: 'smart-procurement', component: SmartProcurement },
       { path: 'decision-center', name: 'decision-center', component: DecisionCenter },
       { path: 'join', name: 'join', component: JoinUs },
+      { path: 'news', name: 'news', component: Intel },
     ],
   },
 ]
