@@ -201,9 +201,9 @@ const pipelineStages = [
     title: "智能寻源",
     subtitle: "Intelligent Sourcing",
     details: [
-      "全网数千万级供应商精准画像深度分析",
-      "多维度资质、产能与交付能力交叉验证初筛",
-      "全球宏观地缘风险与实时合规性自动扫描"
+      "千万级供应商智能匹配与多维度资质交叉验证",
+      "供应商财务健康度、ESG 合规、反贿赂与制裁清单自动尽调",
+      "全球地缘风险与贸易合规自动扫描"
     ],
     icon: markRaw(Search),
     image: "https://images.unsplash.com/photo-1494412519320-aa613dfb7738?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnbG9iYWwlMjBsb2dpc3RpY3MlMjBuZXR3b3JrfGVufDF8fHx8MTc4MjI4MDgxN3ww&ixlib=rb-4.1.0&q=80&w=1080"
@@ -213,9 +213,9 @@ const pipelineStages = [
     title: "自动询盘",
     subtitle: "Automated Inquiry",
     details: [
-      "一键提取需求并生成多语言专业级询价单",
-      "RFP/RFQ 流程全自动点对点分发与进度追踪",
-      "供应商交互数据结构化提取与自动归档"
+      "需求一键提取，自动生成多语言询价单",
+      "RFP/RFQ 点对点分发与全流程进度追踪",
+      "供应商反馈数据结构化提取与自动归档"
     ],
     icon: markRaw(MessageSquare),
     image: "https://images.unsplash.com/photo-1650870218354-0a185ae8181a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBzZXJ2ZXIlMjByb29tJTIwYmx1ZXxlbnwxfHx8fDE3ODIyODA4MTh8MA&ixlib=rb-4.1.0&q=80&w=1080"
@@ -225,9 +225,9 @@ const pipelineStages = [
     title: "智能比价",
     subtitle: "Smart Price Comparison",
     details: [
-      "历史价格走势曲线与宏观大盘指数实时对标",
+      "历史价格走势与宏观指数实时对标分析",
       "TCO（总拥有成本）多维深度拆解与量化分析",
-      "隐含成本预警与异常报价点 AI 自动标注"
+      "隐含成本预警与异常报价 AI 自动标注"
     ],
     icon: markRaw(Scale),
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXRhJTIwYW5hbHl0aWNzJTIwZGFzaGJvYXJkJTIwbWluaW1hbGlzdHxlbnwxfHx8fDE3ODIyODA4MTh8MA&ixlib=rb-4.1.0&q=80&w=1080"
@@ -237,8 +237,8 @@ const pipelineStages = [
     title: "合同管理",
     subtitle: "Contract Management",
     details: [
-      "NLP 语义引擎对法务条款及商业风险自动核查",
-      "履约关键节点时间轴生成与智能预警监控",
+      "NLP 语义引擎自动核查法务条款与商业风险",
+      "履约关键节点智能预警与自动化监控",
       "全球多地电子签名集成与区块链防篡改存证"
     ],
     icon: markRaw(FileText),
@@ -249,9 +249,9 @@ const pipelineStages = [
     title: "方案生成",
     subtitle: "Solution Generation",
     details: [
-      "基于海量数据的产能、交期与成本最优解推演",
-      "针对不同风险偏好的一键备选采购策略输出",
-      "专为高管打造的全局 ROI 可视化决策看板"
+      "产能、交期与成本多目标最优解推演",
+      "不同风险偏好下的一键备选采购策略",
+      "全局 ROI 可视化看板，一键辅助决策"
     ],
     icon: markRaw(Lightbulb),
     image: "https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwdGVjaG5vbG9neSUyMGFic3RyYWN0fGVufDF8fHx8MTc4MjI4MDgxOHww&ixlib=rb-4.1.0&q=80&w=1080"
@@ -266,17 +266,17 @@ const coreCapabilities = [
   },
   {
     title: "AI 算力引擎",
-    description: "百亿级参数模型专门针对复杂供应链场景微调，提供超越人工经验的洞察力与推演预测。",
+    description: "百亿级参数模型针对供应链场景深度微调，提供超越人工经验的洞察与推演。",
     icon: markRaw(Cpu)
   },
   {
     title: "主动风险阻断",
-    description: "7x24 小时全网监控供应商舆情与宏观黑天鹅事件，秒级触发预警并一键生成替代方案。",
+    description: "全天候监控供应商舆情与宏观黑天鹅事件，秒级触发预警并一键生成替代方案。",
     icon: markRaw(ShieldCheck)
   },
   {
     title: "全球毫秒级协同",
-    description: "云原生分布式架构支撑千万级并发，确保全球各采购节点、供应商数据实时同步无延迟。",
+    description: "云原生分布式架构支撑千万级并发，全球采购节点数据实时同步无延迟。",
     icon: markRaw(Zap)
   }
 ]

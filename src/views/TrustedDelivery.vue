@@ -31,7 +31,7 @@
         <div v-for="(stat, idx) in STATS" :key="idx"
           :class="['text-center px-4', idx % 2 === 0 ? 'border-l-0 md:border-l' : '', idx === 0 ? 'border-l-0' : '']">
           <div class="text-4xl md:text-6xl font-light text-white mb-2 tracking-tight">{{ stat.value }}</div>
-          <div class="text-slate-300 font-medium text-sm md:text-base tracking-wide mb-1">{{ stat.label }}</div>
+          <div class="text-slate-500 font-medium text-sm md:text-base tracking-wide mb-1">{{ stat.label }}</div>
           <div class="text-slate-500 text-xs uppercase tracking-wider">{{ stat.sub }}</div>
         </div>
       </div>
@@ -54,17 +54,12 @@
               <h2 class="text-3xl md:text-5xl font-semibold text-slate-900 tracking-tight mb-4">{{ cap.title }}</h2>
               <div
                 class="inline-flex items-center px-3 py-1 rounded-md bg-slate-100 text-slate-600 font-medium text-sm tracking-wide">
-                侧重：{{ cap.tagline }}
+                核心能力：{{ cap.tagline }}
               </div>
             </div>
 
             <p class="text-lg md:text-xl text-slate-500 font-light leading-relaxed">{{ cap.description }}</p>
 
-            <div
-              class="pt-4 flex items-center gap-4 text-blue-600 font-medium hover:text-blue-700 cursor-pointer group w-fit transition-colors">
-              探索技术细节
-              <ArrowRight class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </div>
           </div>
 
           <div class="flex-1 w-full">
@@ -227,7 +222,7 @@
         </div>
 
         <div class="flex justify-center">
-          <button
+          <button @click="router.push('/join')"
             class="px-10 py-5 rounded-full bg-white text-slate-900 font-bold text-lg hover:bg-slate-100 hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.15)] flex items-center gap-3 group">
             <Activity class="w-5 h-5 text-blue-600" />
             开启供应链数字孪生
@@ -267,11 +262,14 @@
 
 <script setup>
 import { markRaw } from 'vue'
+import { useRouter } from 'vue-router'
 import {
   Network, AlertTriangle, FileCheck, Calculator,
   ArrowRight, ShieldCheck, Activity, Globe2, Lock, X, Check,
   Eye, EyeOff, Anchor, Plane, Building, Database
 } from 'lucide-vue-next'
+
+const router = useRouter()
 
 const IMAGES = {
   hero: "https://images.unsplash.com/photo-1684610529682-553625a1ffed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnbG9iYWwlMjBnbG93aW5nJTIwZWFydGglMjBjb25uZWN0ZWQlMjBuZXR3b3JrJTIwZnV0dXJpc3RpYyUyMGRhcmt8ZW58MXx8fHwxNzgyMjg1NDQ3fDA&ixlib=rb-4.1.0&q=80&w=2000",
@@ -320,9 +318,9 @@ const CAPABILITIES = [
 ]
 
 const ECOSYSTEM = [
-  { count: "35+", title: "主流船东与港区", sub: "Top 20 Ocean Carriers", icon: markRaw(Anchor), bgColor: "bg-blue-50", textColor: "text-blue-600", hoverBg: "group-hover:bg-blue-600 group-hover:text-white" },
+  { count: "35+", title: "主流船东与港区", sub: "Ocean Carriers & Ports", icon: markRaw(Anchor), bgColor: "bg-blue-50", textColor: "text-blue-600", hoverBg: "group-hover:bg-blue-600 group-hover:text-white" },
   { count: "80+", title: "国际航空货运", sub: "Global Airlines", icon: markRaw(Plane), bgColor: "bg-cyan-50", textColor: "text-cyan-600", hoverBg: "group-hover:bg-cyan-500 group-hover:text-white" },
-  { count: "40+", title: "多国海关直连", sub: "Customs APIs", icon: markRaw(Building), bgColor: "bg-emerald-50", textColor: "text-emerald-600", hoverBg: "group-hover:bg-emerald-500 group-hover:text-white" },
-  { count: "15+", title: "主流 ERP 预集成", sub: "Enterprise Systems", icon: markRaw(Database), bgColor: "bg-purple-50", textColor: "text-purple-600", hoverBg: "group-hover:bg-purple-500 group-hover:text-white" }
+  { count: "40+", title: "多国海关直连", sub: "Customs Authorities", icon: markRaw(Building), bgColor: "bg-emerald-50", textColor: "text-emerald-600", hoverBg: "group-hover:bg-emerald-500 group-hover:text-white" },
+  { count: "30+", title: "主流 ERP 预集成", sub: "Enterprise Systems", icon: markRaw(Database), bgColor: "bg-purple-50", textColor: "text-purple-600", hoverBg: "group-hover:bg-purple-500 group-hover:text-white" }
 ]
 </script>

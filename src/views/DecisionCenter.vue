@@ -29,7 +29,7 @@
     </section>
 
     <!-- ===== KPI Cards Section ===== -->
-    <section class="relative z-20 -mt-32 w-full mx-auto px-6 md:px-8 mb-24">
+    <section class="relative z-20 -mt-32 max-w-6xl mx-auto px-6 md:px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         <div v-for="(kpi, idx) in kpis" :key="idx"
           class="bg-white/70 backdrop-blur-2xl border border-white p-6 rounded-3xl shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group">
@@ -44,7 +44,7 @@
     </section>
 
     <!-- ===== AI Interactive Command Center (New Section) ===== -->
-    <section class="w-full mx-auto px-6 md:px-8 py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden">
+    <section class="w-full mx-auto px-6 md:px-8 py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden mt-16">
       <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=2000')] bg-cover bg-center opacity-10 mix-blend-screen"></div>
       <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900/90 to-slate-900"></div>
       
@@ -163,67 +163,59 @@
           </div>
           <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-white mb-6">沙盘推演，未雨绸缪</h2>
           <p class="text-xl text-slate-400 font-light max-w-2xl mx-auto">
-            在真实风险发生前，通过数字孪生技术进行供应链压力测试与预案演练。
+            在真实风险发生前，通过供应链仿真引擎进行压力测试与预案演练。
           </p>
         </div>
 
-        <!-- Horizontal Scroll / Carousel Layout for Scenarios -->
-        <div class="flex gap-6 overflow-x-auto pb-12 pt-4 snap-x snap-mandatory hide-scrollbar" style="scrollbar-width: none; ms-overflow-style: none;">
-          <div v-for="(scenario, idx) in scenarios" :key="idx" 
-            v-motion
-            :initial="{ opacity: 0, scale: 0.95 }"
-            :visible="{ opacity: 1, scale: 1, transition: { duration: 800, delay: idx * 150, ease: [0.16, 1, 0.3, 1] } }"
-            :visible-once="true"
-            class="snap-center shrink-0 w-[85vw] md:w-[500px] relative group"
-          >
-            <!-- Card Container -->
-            <div class="h-full bg-white/5 border border-white/10 rounded-[2.5rem] p-8 backdrop-blur-xl hover:bg-white/10 transition-colors duration-500 flex flex-col">
-              
-              <!-- Top Section: Visual / Image -->
-              <div class="relative w-full h-48 rounded-2xl overflow-hidden mb-8 border border-white/10">
-                <img :src="scenario.image" :alt="scenario.title" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 mix-blend-luminosity group-hover:mix-blend-normal" />
-                <div class="absolute inset-0 bg-gradient-to-t from-[#0a0f1c] to-transparent"></div>
-                
-                <!-- Floating Icon -->
-                <div class="absolute bottom-4 left-4 w-12 h-12 rounded-xl bg-indigo-600/80 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-lg">
-                  <component :is="scenario.icon" class="w-6 h-6 text-white" />
+        <!-- Carousel for Scenarios -->
+        <div class="relative">
+          <div ref="carouselRef" @scroll="onScroll"
+            class="flex gap-6 overflow-x-auto snap-x snap-mandatory carousel-track pb-4">
+            <div v-for="(scenario, idx) in scenarios" :key="idx"
+              class="snap-start shrink-0 w-[85vw] md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] relative group">
+              <div class="h-full bg-white/5 border border-white/10 rounded-[2.5rem] p-8 backdrop-blur-xl hover:bg-white/10 transition-colors duration-500 flex flex-col">
+                <div class="relative w-full h-48 rounded-2xl overflow-hidden mb-8 border border-white/10">
+                  <img :src="scenario.image" :alt="scenario.title" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 mix-blend-luminosity group-hover:mix-blend-normal" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#0a0f1c] to-transparent"></div>
                 </div>
-                
-                <!-- Simulation Status Badge -->
-                <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/10 flex items-center gap-2">
-                  <div class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></div>
-                  <span class="text-xs font-medium text-slate-300">Ready to Test</span>
-                </div>
-              </div>
-
-              <!-- Content Section -->
-              <div class="flex-1 flex flex-col">
-                <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors">{{ scenario.title }}</h3>
-                <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-1">{{ scenario.desc }}</p>
-                
-                <!-- Outputs Section (Terminal Style) -->
-                <div class="bg-black/40 rounded-2xl p-5 border border-white/5 font-mono">
-                  <div class="text-xs text-indigo-400 mb-3 flex items-center gap-2">
-                    <Zap class="w-3 h-3" /> EXPECTED_OUTPUTS
+                <div class="flex-1 flex flex-col">
+                  <h3 class="text-2xl font-bold text-white mb-3 group-hover:text-indigo-400 transition-colors">{{ scenario.title }}</h3>
+                  <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-1">{{ scenario.desc }}</p>
+                  <div class="bg-black/40 rounded-2xl p-5 border border-white/5 font-mono">
+                    <div class="text-xs text-indigo-400 mb-3 flex items-center gap-2">
+                      <Zap class="w-3 h-3" /> EXPECTED_OUTPUTS
+                    </div>
+                    <ul class="space-y-3">
+                      <li v-for="(item, i) in scenario.outputs" :key="i" class="flex items-start text-sm text-slate-300">
+                        <span class="text-emerald-500 mr-2 mt-0.5">❯</span>
+                        {{ item }}
+                      </li>
+                    </ul>
                   </div>
-                  <ul class="space-y-3">
-                    <li v-for="(item, i) in scenario.outputs" :key="i" class="flex items-start text-sm text-slate-300">
-                      <span class="text-emerald-500 mr-2 mt-0.5">❯</span>
-                      {{ item }}
-                    </li>
-                  </ul>
                 </div>
+                <div class="absolute inset-0 rounded-[2.5rem] border-2 border-indigo-500/0 group-hover:border-indigo-500/30 transition-colors duration-500 pointer-events-none"></div>
               </div>
-              
-              <!-- Hover Glow Effect -->
-              <div class="absolute inset-0 rounded-[2.5rem] border-2 border-indigo-500/0 group-hover:border-indigo-500/30 transition-colors duration-500 pointer-events-none"></div>
             </div>
           </div>
-        </div>
-        
-        <!-- Scroll Hint -->
-        <div class="flex justify-center mt-8 text-slate-500 text-sm items-center gap-2">
-          <ArrowRight class="w-4 h-4 animate-bounce-x" /> 向右滑动查看更多推演场景
+
+          <!-- Prev / Next Buttons -->
+          <button @click="prev"
+            class="absolute -left-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl flex items-center justify-center text-white hover:bg-white/20 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            :disabled="currentIndex === 0">
+            <ChevronLeft class="w-5 h-5" />
+          </button>
+          <button @click="next"
+            class="absolute -right-5 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl flex items-center justify-center text-white hover:bg-white/20 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+            :disabled="currentIndex >= maxIndex">
+            <ChevronRight class="w-5 h-5" />
+          </button>
+
+          <!-- Dots -->
+          <div class="flex justify-center gap-2 mt-8">
+            <button v-for="(_, idx) in slidesCount" :key="idx" @click="goTo(idx)"
+              class="w-2.5 h-2.5 rounded-full transition-all duration-300"
+              :class="idx === currentIndex ? 'bg-indigo-400 w-8' : 'bg-white/20 hover:bg-white/40'" />
+          </div>
         </div>
       </div>
     </section>
@@ -441,17 +433,69 @@
 </template>
 
 <script setup>
-import { markRaw } from 'vue'
+import { markRaw, ref, computed, onMounted, onUnmounted } from 'vue'
 import {
   BarChart3, TrendingUp, AlertTriangle, PackageSearch,
   ShoppingCart, Factory, ArrowRight, ShieldAlert, Target,
-  CheckCircle2, Bot, Send, Globe
+  CheckCircle2, Bot, Send, Globe, ChevronLeft, ChevronRight
 } from 'lucide-vue-next'
 import ImageWithFallback from '@/components/ImageWithFallback.vue'
 
+const carouselRef = ref(null)
+const currentIndex = ref(0)
+const slidesPerView = ref(3)
+
+const maxIndex = computed(() => Math.max(0, scenarios.length - slidesPerView.value))
+const slidesCount = computed(() => Math.max(1, scenarios.length - slidesPerView.value + 1))
+
+function getCardWidth() {
+  const card = carouselRef.value?.children[0]
+  return card ? card.offsetWidth + 24 : 300 // 24 = gap-6
+}
+
+function scrollToCard(index) {
+  const w = getCardWidth()
+  carouselRef.value?.scrollTo({ left: index * w, behavior: 'smooth' })
+}
+
+function prev() {
+  if (currentIndex.value > 0) {
+    currentIndex.value--
+    scrollToCard(currentIndex.value)
+  }
+}
+function next() {
+  if (currentIndex.value < maxIndex.value) {
+    currentIndex.value++
+    scrollToCard(currentIndex.value)
+  }
+}
+function goTo(idx) {
+  currentIndex.value = Math.min(idx, maxIndex.value)
+  scrollToCard(currentIndex.value)
+}
+
+function onScroll() {
+  const w = getCardWidth()
+  if (!w || !carouselRef.value) return
+  const idx = Math.round(carouselRef.value.scrollLeft / w)
+  currentIndex.value = Math.min(idx, maxIndex.value)
+}
+
+function updateSlides() {
+  slidesPerView.value = window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1
+  if (currentIndex.value > maxIndex.value) currentIndex.value = maxIndex.value
+}
+onMounted(() => {
+  updateSlides()
+  window.addEventListener('resize', updateSlides)
+})
+onUnmounted(() => {
+  window.removeEventListener('resize', updateSlides)
+})
 const kpis = [
   { title: "库存周转提升", value: "+32%", icon: markRaw(PackageSearch) },
-  { title: "预测精度改善", value: "95.8%", icon: markRaw(Target) },
+  { title: "预测准确率", value: "95.8%", icon: markRaw(Target) },
   { title: "补货效率提升", value: "4x", icon: markRaw(ShoppingCart) },
   { title: "排产优化节省", value: "-45%", icon: markRaw(Factory) }
 ]
@@ -477,6 +521,38 @@ const scenarios = [
     icon: markRaw(TrendingUp),
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
     outputs: ["产能瓶颈定位", "牛鞭效应抑制方案", "现金流压力测试报告"]
+  },
+  {
+    title: "供应商断供推演",
+    desc: "模拟核心供应商突然破产、产能被锁定或重大质量事故，评估对交付链的级联冲击。",
+    icon: markRaw(ShieldAlert),
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+    outputs: ["替代供应商切换时效", "安全库存消耗曲线", "客户订单分批交付预案"]
+  },
+  {
+    title: "关键物流枢纽中断",
+    desc: "模拟世界级港口罢工、运河封闭或核心中转机场停运，推演全球货物流的迂回能力。",
+    icon: markRaw(PackageSearch),
+    image: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1200&q=80",
+    outputs: ["替代路线时效对比", "滞留附加费估算", "多式联运切换方案"]
+  },
+  {
+    title: "汇率与大宗商品波动",
+    desc: "模拟人民币/美元剧烈波动或铜、锂等关键原材料暴涨，量化对采购成本和利润率的冲击。",
+    icon: markRaw(BarChart3),
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
+    outputs: ["成本敏感性矩阵", "套期保值策略建议", "替代材料/供应商比价"]
   }
 ]
 </script>
+
+<style scoped>
+.carousel-track {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+</style>
+
