@@ -99,19 +99,35 @@
         <ImageWithFallback
           src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2000&q=80"
           alt="AI Supply Chain"
-          class="w-full h-full object-cover opacity-30 mix-blend-luminosity scale-105 animate-[pulse_20s_ease-in-out_infinite_alternate]" />
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent"></div>
+          class="w-full h-full object-cover scale-105 animate-[pulse_20s_ease-in-out_infinite_alternate]" />
+        <!-- 仅保留底部极轻微的渐变以确保文字可读性，移除整体的暗色遮罩 -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
       </div>
       <div class="relative z-10 px-6 max-w-4xl mx-auto text-center">
-        <h2 class="text-5xl md:text-7xl font-semibold text-white mb-8 tracking-tight">AI 重塑全球供应链</h2>
-        <p class="text-xl md:text-2xl text-slate-300 font-light leading-relaxed mb-12">
+        <h2 v-motion 
+          :initial="{ opacity: 0, y: 50, scale: 0.95 }"
+          :visible="{ opacity: 1, y: 0, scale: 1, transition: { duration: 1000, ease: [0.16, 1, 0.3, 1] } }"
+          :visible-once="true"
+          class="text-5xl md:text-7xl font-semibold text-white mb-8 tracking-tight drop-shadow-lg">
+          AI 重塑全球供应链
+        </h2>
+        <p v-motion 
+          :initial="{ opacity: 0, y: 30 }"
+          :visible="{ opacity: 1, y: 0, transition: { duration: 1000, delay: 200, ease: [0.16, 1, 0.3, 1] } }"
+          :visible-once="true"
+          class="text-xl md:text-2xl text-white font-light leading-relaxed mb-12 drop-shadow-md">
           将全球供应链从被动、割裂、脆弱的系统，<br class="hidden md:block" />转变为可预测、可重构、具备韧性的智能网络。
         </p>
-        <RouterLink to="/smart-procurement"
-          class="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/30 text-lg hover:scale-105 duration-300">
-          探索解决方案
-          <ArrowRight class="w-5 h-5" />
-        </RouterLink>
+        <div v-motion 
+          :initial="{ opacity: 0, y: 30 }"
+          :visible="{ opacity: 1, y: 0, transition: { duration: 1000, delay: 400, ease: [0.16, 1, 0.3, 1] } }"
+          :visible-once="true">
+          <RouterLink to="/smart-procurement"
+            class="inline-flex items-center gap-2 px-10 py-5 rounded-full bg-blue-600 text-white font-medium hover:bg-blue-500 transition-all shadow-[0_0_40px_rgba(37,99,235,0.4)] hover:shadow-[0_0_60px_rgba(37,99,235,0.6)] text-lg hover:scale-105 duration-300 border border-blue-400/30 group">
+            探索解决方案
+            <ArrowRight class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </RouterLink>
+        </div>
       </div>
     </section>
 
@@ -180,12 +196,35 @@
     </section>
 
     <!-- ===== Stats ===== -->
-    <section class="py-20 px-6 w-full mx-auto">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-6 text-center divide-x divide-slate-200/50">
-        <div v-for="(stat, idx) in STATS" :key="idx" v-motion :initial="{ opacity: 0, scale: 0.9 }"
-          :visible="{ opacity: 1, scale: 1, transition: { duration: 500, delay: idx * 100 } }" :visible-once="true">
-          <div class="text-4xl md:text-5xl font-semibold text-slate-900 mb-2">{{ stat.num }}</div>
-          <div class="text-sm font-medium text-slate-500 uppercase tracking-wider">{{ stat.label }}</div>
+    <section class="py-24 px-6 w-full mx-auto bg-white relative overflow-hidden">
+      <!-- 装饰性背景元素 -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+      
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8">
+          <div v-for="(stat, idx) in STATS" :key="idx" v-motion 
+            :initial="{ opacity: 0, y: 30 }"
+            :visible="{ opacity: 1, y: 0, transition: { duration: 800, delay: idx * 150, ease: [0.16, 1, 0.3, 1] } }" 
+            :visible-once="true"
+            class="relative flex flex-col items-center justify-center group">
+            
+            <!-- 分割线 (除了最后一个) -->
+            <div v-if="idx !== STATS.length - 1" class="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-px h-12 bg-slate-200 group-hover:bg-blue-200 transition-colors duration-500"></div>
+            
+            <div class="relative">
+              <!-- 数字背景光晕 -->
+              <div class="absolute inset-0 bg-blue-100 blur-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 rounded-full"></div>
+              
+              <div class="text-5xl md:text-6xl font-bold text-slate-900 mb-3 tracking-tight relative z-10 group-hover:text-blue-600 transition-colors duration-300">
+                {{ stat.num }}
+              </div>
+            </div>
+            
+            <div class="text-sm md:text-base font-medium text-slate-500 tracking-wide flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              {{ stat.label }}
+            </div>
+          </div>
         </div>
       </div>
     </section>
